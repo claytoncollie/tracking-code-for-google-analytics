@@ -22,7 +22,7 @@ function google_analytics_tracking_code_add_settings_field() {
 		]
 	);
 
-	register_setting( 'general', 'google_analytics_tracking_code', 'sanitize_text_field' );
+	register_setting( 'general', 'google_analytics_tracking_code', ['sanitize_callback' => 'sanitize_text_field'] );
 }
 
 /**
