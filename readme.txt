@@ -57,7 +57,7 @@ https://github.com/claytoncollie/google-analytics-tracking-code
 
 = Why did you build this plugin? =
 
-All of the plugins I have used in the past have too many features for my liking. This plugin is basically two functions. One for registering a settings field on the Options General settings page. And other for printing the tracking code to the frontend. I was a lightweight solution for the websites that I build without all of the extra bells and whistles. If you are expecting this plugin to do more or grow in the future, please do not use it.
+The plugins I have used in the past to solve this problem have too many features for my liking. This plugin is comprised two functions. One for registering a settings field on the Options General page. And another for printing the tracking code to the frontend. I want a lightweight solution for the websites that I build without all of the extra bells and whistles. If you are expecting this plugin to do more or grow in the future, please do not use it.
 
 = Where is the tracking code inserted? =
 
@@ -74,14 +74,6 @@ https://github.com/claytoncollie/google-analytics-tracking-code/issues
 = Can I use this plugin with Composer? =
 
 https://packagist.org/packages/claytoncollie/google-analytics-tracking-code
-
-== Screenshots ==
-
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
 
 == Changelog ==
 

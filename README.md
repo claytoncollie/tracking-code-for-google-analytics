@@ -37,7 +37,7 @@ function my_prefix_google_analytics_id( $tracking_code_id ) {
 
 ##### Why did you build this plugin?
 
-All of the plugins I have used in the past have too many features for my liking. This plugin is basically two functions. One for registering a settings field on the Options General settings page. And other for printing the tracking code to the frontend. I was a lightweight solution for the websites that I build without all of the extra bells and whistles. If you are expecting this plugin to do more or grow in the future, please do not use it.
+The plugins I have used in the past to solve this problem have too many features for my liking. This plugin is comprised two functions. One for registering a settings field on the Options General page. And another for printing the tracking code to the frontend. I want a lightweight solution for the websites that I build without all of the extra bells and whistles. If you are expecting this plugin to do more or grow in the future, please do not use it.
 
 ##### Where is the tracking code inserted?
 
