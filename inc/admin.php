@@ -48,7 +48,7 @@ function google_analytics_tracking_code_add_settings_field() {
 /**
  * Text field for tracking code ID.
  *
- * @param array $args The field settings.
+ * @param array<string, string> $args The field settings.
  * @return void
  * @since 1.0.0
  */
