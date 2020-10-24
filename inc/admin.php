@@ -40,11 +40,11 @@ function google_analytics_tracking_code_text_settings_field( $args ) {
 		'description' => '',
 	 ] );
 
-	printf( '<input type="text" id="%1$s" name="%1$s" value="%2$s" aria-describedby="%3$s" class="regular-text ltr" />%4$s',
+	printf( '<input type="text" id="%1$s" name="%1$s" value="%2$s" aria-describedby="%3$s-description" class="regular-text ltr" />%4$s',
 		esc_attr( $args['name'] ),
         esc_attr( $args['value'] ),
         esc_attr( $args['id'] ),
-        $args['description'] ? sprintf( '<p class="description" id="%1$s">%2$s</p>', 
+        $args['description'] ? sprintf( '<p class="description" id="%1$s-description">%2$s</p>', 
             esc_attr( $args['id'] ),
             esc_html( $args['description'] ) 
         ) : ''
