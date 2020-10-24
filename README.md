@@ -2,6 +2,18 @@
 
 Google Analytics Tracking Code is a simple, lightweight WordPress plugin for inserting your Google Analytics tracking code. The plugin does one thing and one thing only; prints the standard Google Analytics tacking script to the `<head>` of your website. To insert your tracking  code ID, navigate to Settings > General and then scroll to the bottom of the page.
 
+### Getting Started
+
+1. Upload `google-analytics-tracking-code` to the `/wp-content/plugins/` directory
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Navigate to Settings > General > scroll to the bottom of the page
+4. Insert your tracking code ID
+5. Save your changes
+
+### Composer
+
+`composer require claytoncollie/google-analytics-tracking-code`
+
 ### Filters
 
 If you want to set the tracking code ID without using the wp-admin user interface, use the filter below.
@@ -20,26 +32,6 @@ function my_prefix_google_analytics_id( $tracking_code_id ) {
     return $tracking_code_id;
 }
 ```
-
-### Composer
-
-This plugin is available on Packagist.
-
-https://packagist.org/packages/claytoncollie/google-analytics-tracking-code
-
-### Contributing
-
-While the purpose of this plugin is to be very tightly scoped, issues and pull requests are welcome, but I do not guarantee that everything will be merged or support will be given.
-
-https://github.com/claytoncollie/google-analytics-tracking-code
-
-### Installation
-
-1. Upload `google-analytics-tracking-code` to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Navigate to Settings > General > scroll to the bottom of the page
-4. Insert your tracking code ID
-5. Save your changes
 
 ### Frequently Asked Questions
 
@@ -62,3 +54,19 @@ https://github.com/claytoncollie/google-analytics-tracking-code/issues
 ##### Can I use this plugin with Composer?
 
 https://packagist.org/packages/claytoncollie/google-analytics-tracking-code
+
+### Contributing
+
+While the purpose of this plugin is to be very tightly scoped, issues and pull requests are welcome, but I do not guarantee that everything will be merged or support will be given.
+
+1. Clone the repository to your `wp-content/plugins/` directory.
+
+`git clone git@github.com:claytoncollie/google-analytics-tracking-code.git`
+
+2. Navigate into the directory.
+
+`cd google-analytics-tracking-code`
+
+3. Install Composer dependencies.
+
+`composer install`
