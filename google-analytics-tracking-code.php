@@ -9,8 +9,13 @@
  * Domain Path:     /languages
  * Version:         0.1.0
  *
- * @package         Google_Analytics_Tracking_Code
+ * @package         Content_Pilot_Instant_Search
  */
+
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
 
 require_once __DIR__ . '/inc/admin.php';
 require_once __DIR__ . '/inc/public.php';

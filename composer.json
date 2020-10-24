@@ -10,16 +10,16 @@
         }
     ],
     "require-dev": {
-        "dealerdirect/phpcodesniffer-composer-installer": "0.5.0",
-        "wp-coding-standards/wpcs": "2.1.1",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+        "wp-coding-standards/wpcs": "^2.3.0",
         "phpcompatibility/phpcompatibility-wp": "2.1.0",
-        "squizlabs/php_codesniffer": "3.5.4",
-        "phpstan/phpstan": "^0.12.25",
-        "szepeviktor/phpstan-wordpress": "^0.5.0"
+        "squizlabs/php_codesniffer": "^3.5.8",
+        "phpstan/phpstan": "^0.12.51",
+        "szepeviktor/phpstan-wordpress": "^0.6.6"
     },
     "scripts": {
-        "phpcs-i": ["@php ./vendor/bin/phpcs -i"],
-        "check-cs": ["@php ./vendor/bin/phpcs"],
-        "fix-cs": ["@php ./vendor/bin/phpcbf"]
+        "phpcbf": "@php ./vendor/bin/phpcbf",
+        "phpcs": "@php ./vendor/bin/phpcs",
+        "phpstan": "@php vendor/bin/phpstan analyse"
     }
 }
