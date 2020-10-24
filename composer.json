@@ -1,0 +1,13 @@
+{
+    "name": "claytoncollie/google-analytics-tracking-code",
+    "description": "Add Google Analytics tracking to your website",
+    "type": "wordpress-plugin",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Clayton Collie",
+            "email": "clayton.collie@gmail.com"
+        }
+    ],
+    "require": {}
+}
