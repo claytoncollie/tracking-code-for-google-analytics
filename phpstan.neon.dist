@@ -4,6 +4,4 @@ parameters:
     level: max
     paths:
         - google-analytics-tracking-code.php
-        - inc/admin.php
-        - inc/public.php
-    checkMissingIterableValueType: false
+        - inc/
