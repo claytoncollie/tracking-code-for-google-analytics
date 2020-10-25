@@ -9,7 +9,7 @@
  * Domain Path:     /languages
  * Version:         0.1.0
  *
- * @package         Content_Pilot_Instant_Search
+ * @package         Google_Analytics_Tracking_Code
  */
 
 // If this file is called directly, abort.
