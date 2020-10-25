@@ -18,19 +18,20 @@ Google Analytics Tracking Code is a simple, lightweight WordPress plugin for ins
 
 If you want to set the tracking code ID without using the wp-admin user interface, use the filter below.
 
-```
-add_filter( 'google_analytics_tracking_code_id', 'my_prefix_google_analytics_id' );
-/**
- * Filter the Google Analytics tracking ID.
- *
- * @param string $tracking_code_id Tracking code ID.
- *
- * @return string
- */
-function my_prefix_google_analytics_id( $tracking_code_id ) {
-    $tracking_code_id = 'UA-7654321';
-    return $tracking_code_id;
-}
+```php
+add_filter(
+	'google_analytics_tracking_code_id',
+	/**
+	 * Set Google Analytics tracking code ID.
+	 *
+	 * @param string $tracking_code_id Tracking code ID.
+	 *
+	 * @return string
+	 */
+	function ( $tracking_code_id ) {
+	    return 'UA-7654321';
+	}
+);
 ```
 
 ### Frequently Asked Questions
