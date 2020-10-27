@@ -2,7 +2,7 @@
 /**
  * Admin facing features.
  *
- * @package Google_Analytics_Tracking_Code
+ * @package Tracking_Code_For_Google_Analytics
  */
 
 // If this file is called directly, abort.
@@ -10,34 +10,34 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-add_action( 'admin_init', 'google_analytics_tracking_code_add_settings_field' );
+add_action( 'admin_init', 'tracking_code_for_google_analytics_add_settings_field' );
 /**
  * Register the settings field for the tracking code ID.
  *
  * @return void
  * @since 1.0.0
  */
-function google_analytics_tracking_code_add_settings_field() {
+function tracking_code_for_google_analytics_add_settings_field() {
 	add_settings_field(
-		'google_analytics_tracking_code_id_field',
-		esc_html__( 'Google Analytics', 'google-analytics-tracking-code' ),
-		'google_analytics_tracking_code_text_settings_field',
+		'tracking_code_for_google_analytics_id_field',
+		esc_html__( 'Google Analytics', 'tracking-code-for-google-analytics' ),
+		'tracking_code_for_google_analytics_text_settings_field',
 		'general',
 		'default',
 		array(
-			'id'          => 'google-analytics-tracking-code',
-			'name'        => 'google_analytics_tracking_code',
-			'value'       => get_option( 'google_analytics_tracking_code', '' ),
-			'description' => esc_html__( 'Enter your Google Analytics tracking code ID eg. UA-1234567', 'google-analytics-tracking-code' ),
+			'id'          => 'tracking-code-for-google-analytics',
+			'name'        => 'tracking_code_for_google_analytics',
+			'value'       => get_option( 'tracking_code_for_google_analytics', '' ),
+			'description' => esc_html__( 'Enter your Google Analytics tracking code ID eg. UA-1234567', 'tracking-code-for-google-analytics' ),
 		)
 	);
 
 	register_setting(
 		'general',
-		'google_analytics_tracking_code',
+		'tracking_code_for_google_analytics',
 		array(
 			'type'              => 'string',
-			'description'       => esc_html__( 'Google Analytics tracking code ID', 'google-analytics-tracking-code' ),
+			'description'       => esc_html__( 'Google Analytics tracking code ID', 'tracking-code-for-google-analytics' ),
 			'sanitize_callback' => 'sanitize_text_field',
 			'show_in_rest'      => true,
 			'default'           => '',
@@ -52,7 +52,7 @@ function google_analytics_tracking_code_add_settings_field() {
  * @return void
  * @since 1.0.0
  */
-function google_analytics_tracking_code_text_settings_field( $args ) {
+function tracking_code_for_google_analytics_text_settings_field( $args ) {
 	$args = wp_parse_args(
 		$args,
 		array(

@@ -1,15 +1,15 @@
 <?php
 /**
- * Plugin Name:     Google Analytics Tracking Code
- * Plugin URI:      https://github.com/claytoncollie/google-analytics-tracking-code
+ * Plugin Name:     Tracking Code For Google Analytics
+ * Plugin URI:      https://github.com/claytoncollie/tracking-code-for-google-analytics
  * Description:     Simple, lightweight solution for inserting your Google Analytics tracking code.
  * Author:          Clayton Collie
  * Author URI:      https://github.com/claytoncollie
- * Text Domain:     google-analytics-tracking-code
+ * Text Domain:     tracking-code-for-google-analytics
  * Domain Path:     /languages
  * Version:         0.1.0
  *
- * @package         Google_Analytics_Tracking_Code
+ * @package         Tracking_Code_For_Google_Analytics
  */
 
 // If this file is called directly, abort.

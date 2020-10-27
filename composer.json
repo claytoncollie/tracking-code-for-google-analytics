@@ -1,5 +1,5 @@
 {
-    "name": "claytoncollie/google-analytics-tracking-code",
+    "name": "claytoncollie/tracking-code-for-google-analytics",
     "description": "Add Google Analytics tracking to your website",
     "type": "wordpress-plugin",
     "license": "GPL-3.0-or-later",

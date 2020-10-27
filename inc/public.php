@@ -2,7 +2,7 @@
 /**
  * Public facing features.
  *
- * @package Google_Analytics_Tracking_Code
+ * @package Tracking_Code_For_Google_Analytics
  */
 
 // If this file is called directly, abort.
@@ -10,14 +10,14 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-add_action( 'wp_head', 'google_analytics_tracking_code_do_the_script', 1 );
+add_action( 'wp_head', 'tracking_code_for_google_analytics_do_the_script', 1 );
 /**
  * Output the tracking code snippet to the frontend.
  *
  * @return void
  * @since 1.0.0
  */
-function google_analytics_tracking_code_do_the_script() {
+function tracking_code_for_google_analytics_do_the_script() {
 	/**
 	 * Filter the tracking_code_id variable to support other methods of setting this value.
 	 *
@@ -25,7 +25,7 @@ function google_analytics_tracking_code_do_the_script() {
 	 * @return string
 	 * @since 1.0.0
 	 */
-	$tracking_code_id = apply_filters( 'google_analytics_tracking_code_id', get_option( 'google_analytics_tracking_code', '' ) );
+	$tracking_code_id = apply_filters( 'tracking_code_for_google_analytics_id', get_option( 'tracking_code_for_google_analytics', '' ) );
 
 	if ( ! empty( $tracking_code_id ) ) {
 		printf(

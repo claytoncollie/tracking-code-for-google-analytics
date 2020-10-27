@@ -3,7 +3,7 @@ includes:
 parameters:
     level: max
     paths:
-        - google-analytics-tracking-code.php
+        - tracking-code-for-google-analytics.php
         - inc/admin.php
         - inc/public.php
     checkMissingIterableValueType: false
