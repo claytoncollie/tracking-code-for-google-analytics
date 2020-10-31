@@ -64,14 +64,10 @@ function tracking_code_for_google_analytics_text_settings_field( $args ) {
 	);
 
 	printf(
-		'<input type="text" id="%1$s" name="%1$s" value="%2$s" aria-describedby="%3$s-description" class="regular-text ltr" />%4$s',
+		'<input type="text" id="%1$s" name="%1$s" value="%2$s" aria-describedby="%3$s-description" class="regular-text ltr" /><p class="description" id="%3$s-description">%4$s</p>',
 		esc_attr( $args['name'] ),
 		esc_attr( $args['value'] ),
 		esc_attr( $args['id'] ),
-		$args['description'] ? sprintf(
-			'<p class="description" id="%1$s-description">%2$s</p>',
-			esc_attr( $args['id'] ),
-			esc_html( $args['description'] )
-		) : ''
+		esc_html( $args['description'] )
 	);
 }
