@@ -27,9 +27,9 @@ function tracking_code_for_google_analytics_do_the_script() {
 	 */
 	$measurement_id = apply_filters( 'tracking_code_for_google_analytics_id', get_option( 'tracking_code_for_google_analytics', '' ) );
 
-	if ( '' === $tracking_code_id ) {
+	if ( '' === $measurement_id ) {
 		return;
-    }
+	}
 
 	printf(
 		// phpcs:disable
