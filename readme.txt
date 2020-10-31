@@ -1,45 +1,45 @@
 === Tracking Code for Google Analytics ===
 Contributors: claytoncollie
 Donate link: https://www.claytoncollie.com/
-Tags: google, analytics, tracking, code, ID
-Requires at least: 4.5
-Tested up to: 5.5.1
+Tags: google, analytics, tracking code, measurement, universal analytics, tracking snippet
+Requires at least: 4.8
+Tested up to: 5.5.3
 Requires PHP: 5.6
-Stable tag: 0.1.0
+Stable tag: 1.0.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Simple, lightweight solution for inserting your Google Analytics tracking code.
+Simple, lightweight solution for inserting your Google Analytics Universal tracking code.
 
 == Description ==
 
-Tracking Code for Google Analytics is a simple, lightweight solution for inserting your Google Analytics tracking code. The plugin does one thing and one thing only; prints the standard Google Analytics tacking script to the `<head>` of your website. To insert your tracking  code ID, navigate to Settings > General and then scroll to the bottom of the page.
+Tracking Code For Google Analytics is a simple, lightweight WordPress plugin for inserting your Google Analytics Universal Analytics tracking code. The plugin does one thing and one thing only; prints the standard Google Analytics tacking script to the `<head>` of your website. To insert your measurement ID, navigate to Settings > General and then scroll to the bottom of the page.
 
-### Filters
-
-If you want to set the tracking code ID without using the wp-admin user interface, use the filter below.
-
-```php
-add_filter(
-	'tracking_code_for_google_analytics_id',
-	/**
-	 * Set Google Analytics tracking code ID.
-	 *
-	 * @param string $tracking_code_id Tracking code ID.
-	 *
-	 * @return string
-	 */
-	function ( $tracking_code_id ) {
-	    return 'UA-7654321';
-	}
-);
-```
+This plugin will not work with Google Analytics 4; only the Universal Analytics version.
 
 ### Composer
 
-This plugin is available on Packagist.
+`composer require claytoncollie/tracking-code-for-google-analytics`
 
-https://packagist.org/packages/claytoncollie/tracking-code-for-google-analytics
+### Filters
+
+If you want to set the measurement ID without using the wp-admin user interface, use the filter below.
+
+`
+add_filter(
+	'tracking_code_for_google_analytics_id',
+	/**
+	 * Set Google Analytics measurement ID.
+	 *
+	 * @param string $measurement_id Measurement ID.
+	 *
+	 * @return string
+	 */
+	function ( $measurement_id ) {
+		return 'UA-7654321';
+	}
+);
+`
 
 ### Contributing
 
@@ -52,7 +52,7 @@ https://github.com/claytoncollie/tracking-code-for-google-analytics
 1. Upload `tracking-code-for-google-analytics` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Navigate to Settings > General > scroll to the bottom of the page
-4. Insert your tracking code ID
+4. Insert your measurement ID
 5. Save your changes
 
 == Frequently Asked Questions ==
