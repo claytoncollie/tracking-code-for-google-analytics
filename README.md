@@ -2,8 +2,6 @@
 
 Tracking Code For Google Analytics is a simple, lightweight WordPress plugin for inserting your Google Analytics Universal Analytics tracking code. The plugin does one thing and one thing only; prints the standard Google Analytics tacking script to the `<head>` of your website. To insert your measurement ID, navigate to Settings > General and then scroll to the bottom of the page.
 
-This plugin will not work with Google Analytics 4; only the Universal Analytics version. 
-
 ### Getting Started
 
 1. Upload `tracking-code-for-google-analytics` to the `/wp-content/plugins/` directory

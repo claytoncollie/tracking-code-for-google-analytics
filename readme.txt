@@ -3,9 +3,9 @@ Contributors: claytoncollie
 Donate link: https://www.claytoncollie.com/
 Tags: google, analytics, tracking code, measurement, universal analytics, tracking snippet
 Requires at least: 4.8
-Tested up to: 5.5.3
+Tested up to: 5.6.0
 Requires PHP: 5.6
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,8 +14,6 @@ Simple, lightweight solution for inserting your Google Analytics Universal track
 == Description ==
 
 Tracking Code For Google Analytics is a simple, lightweight WordPress plugin for inserting your Google Analytics Universal Analytics tracking code. The plugin does one thing and one thing only; prints the standard Google Analytics tacking script to the `<head>` of your website. To insert your measurement ID, navigate to Settings > General and then scroll to the bottom of the page.
-
-This plugin will not work with Google Analytics 4; only the Universal Analytics version.
 
 ### Composer
 
@@ -78,6 +76,10 @@ https://github.com/claytoncollie/tracking-code-for-google-analytics/issues
 https://packagist.org/packages/claytoncollie/tracking-code-for-google-analytics
 
 == Changelog ==
+
+= 1.0.1=
+* Update documentation
+* Test with WordPress version 5.6.0
 
 = 1.0.0 =
 * Initial release
