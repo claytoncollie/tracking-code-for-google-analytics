@@ -1,6 +1,6 @@
 === Tracking Code for Google Analytics ===
 Contributors: claytoncollie
-Donate link: https://www.claytoncollie.com/
+Donate link: https://commerce.coinbase.com/checkout/2aa628a4-f12e-4231-a6eb-9887ddc6e9aa
 Tags: google, analytics, tracking code, measurement, universal analytics, tracking snippet
 Requires at least: 3.6
 Tested up to: 5.7.0
@@ -41,15 +41,11 @@ add_filter(
 
 ### Contributing
 
-While the purpose of this plugin is to be very tightly scoped, issues and pull requests are welcome GitHub, but I do not guarantee that everything will be merged or support will be given.
-
-[https://github.com/claytoncollie/tracking-code-for-google-analytics](https://github.com/claytoncollie/tracking-code-for-google-analytics)
+While the purpose of this plugin is to be very tightly scoped, [issues and pull requests are welcome on GitHub](https://github.com/claytoncollie/tracking-code-for-google-analytics). I do not guarantee that everything will be merged or support will be given.
 
 ### Donate
 
-If you like this plugin and would like to support my work, please consider a small donation via Coinbase.
-
-[https://commerce.coinbase.com/checkout/2aa628a4-f12e-4231-a6eb-9887ddc6e9aa](https://commerce.coinbase.com/checkout/2aa628a4-f12e-4231-a6eb-9887ddc6e9aa)
+If you like this plugin and would like to support my work, [please consider a small donation via Coinbase](https://commerce.coinbase.com/checkout/2aa628a4-f12e-4231-a6eb-9887ddc6e9aa).
 
 == Installation ==
 
@@ -61,7 +57,7 @@ If you like this plugin and would like to support my work, please consider a sma
 
 == Frequently Asked Questions ==
 
-= Why did you build this plugin? =
+= Why did I build this plugin? =
 
 The plugins I have used in the past to solve this problem have too many features for my liking. This plugin is comprised two functions. One for registering a settings field on the Options General page. And another for printing the tracking code to the frontend. I want a lightweight solution for the websites that I build without all of the extra bells and whistles. If you are expecting this plugin to do more or grow in the future, please do not use it.
 
@@ -75,11 +71,11 @@ No. This plugin is intentionally lightweight. All it does is register a settings
 
 = I found a bug. How do I report it? =
 
-https://github.com/claytoncollie/tracking-code-for-google-analytics/issues
+[https://github.com/claytoncollie/tracking-code-for-google-analytics/issues](https://github.com/claytoncollie/tracking-code-for-google-analytics/issues)
 
 = Can I use this plugin with Composer? =
 
-https://packagist.org/packages/claytoncollie/tracking-code-for-google-analytics
+[https://packagist.org/packages/claytoncollie/tracking-code-for-google-analytics](https://packagist.org/packages/claytoncollie/tracking-code-for-google-analytics)
 
 == Changelog ==
 
