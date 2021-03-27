@@ -2,7 +2,7 @@
 Contributors: claytoncollie
 Donate link: https://commerce.coinbase.com/checkout/2aa628a4-f12e-4231-a6eb-9887ddc6e9aa
 Tags: google, analytics, tracking code, measurement, universal analytics, tracking snippet
-Requires at least: 3.6
+Requires at least: 5.0
 Tested up to: 5.7.0
 Requires PHP: 7.2
 Stable tag: 1.0.1
@@ -79,7 +79,7 @@ No. This plugin is intentionally lightweight. All it does is register a settings
 
 == Changelog ==
 
-= 1.0.1=
+= 1.0.1 =
 * Update documentation
 * Test with WordPress version 5.6.0
 
