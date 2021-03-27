@@ -2,9 +2,9 @@
 Contributors: claytoncollie
 Donate link: https://www.claytoncollie.com/
 Tags: google, analytics, tracking code, measurement, universal analytics, tracking snippet
-Requires at least: 4.8
+Requires at least: 3.6
 Tested up to: 5.7.0
-Requires PHP: 5.6
+Requires PHP: 7.2
 Stable tag: 1.0.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
