@@ -41,9 +41,15 @@ add_filter(
 
 ### Contributing
 
-While the purpose of this plugin is to be very tightly scoped, issues and pull requests are welcome, but I do not guarantee that everything will be merged or support will be given.
+While the purpose of this plugin is to be very tightly scoped, issues and pull requests are welcome GitHub, but I do not guarantee that everything will be merged or support will be given.
 
-https://github.com/claytoncollie/tracking-code-for-google-analytics
+[https://github.com/claytoncollie/tracking-code-for-google-analytics](https://github.com/claytoncollie/tracking-code-for-google-analytics)
+
+### Donate
+
+If you like this plugin and would like to support my work, please consider a small donation via Coinbase.
+
+[https://commerce.coinbase.com/checkout/2aa628a4-f12e-4231-a6eb-9887ddc6e9aa](https://commerce.coinbase.com/checkout/2aa628a4-f12e-4231-a6eb-9887ddc6e9aa)
 
 == Installation ==
 
