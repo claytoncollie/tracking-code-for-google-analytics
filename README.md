@@ -50,9 +50,9 @@ No. This plugin is intentionally lightweight. All it does is register a settings
 
 ##### I found a bug. How do I report it?
 
-https://github.com/claytoncollie/tracking-code-for-google-analytics/issues
+[https://github.com/claytoncollie/tracking-code-for-google-analytics/issues](https://github.com/claytoncollie/tracking-code-for-google-analytics/issues)
 
 ##### Can I use this plugin with Composer?
 
-https://packagist.org/packages/claytoncollie/tracking-code-for-google-analytics
+[https://packagist.org/packages/claytoncollie/tracking-code-for-google-analytics](https://packagist.org/packages/claytoncollie/tracking-code-for-google-analytics)
 

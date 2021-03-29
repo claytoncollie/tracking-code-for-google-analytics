@@ -2,10 +2,10 @@
 Contributors: claytoncollie
 Donate link: https://www.claytoncollie.com/
 Tags: google, analytics, tracking code, measurement, universal analytics, tracking snippet
-Requires at least: 4.8
+Requires at least: 5.0
 Tested up to: 5.7.0
-Requires PHP: 5.6
-Stable tag: 1.0.1
+Requires PHP: 7.2
+Stable tag: 1.1.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,7 +77,17 @@ https://packagist.org/packages/claytoncollie/tracking-code-for-google-analytics
 
 == Changelog ==
 
-= 1.0.1=
+= 1.1.0 =
+* Use PHP Namespaces
+* Use PHP type hinting
+* Use GitHub Action to matrix test PHP with WP
+* Add donation link to Coinbase
+* Fix URLs in readme files
+* Fix markdown syntax for changelog in readme.txt
+* Ignore phpstan config from deployed plugin
+* Ignore CONTRIBUTING.md from deployed plugin
+
+= 1.0.1 =
 * Update documentation
 * Test with WordPress version 5.6.0
 
