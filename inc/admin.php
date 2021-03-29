@@ -5,23 +5,27 @@
  * @package Tracking_Code_For_Google_Analytics
  */
 
+namespace Tracking_Code_For_Google_Analytics;
+
+// use function Tracking_Code_For_Google_Analytics\text_settings_field as text_settings_field;
+
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-add_action( 'admin_init', 'tracking_code_for_google_analytics_add_settings_field', 10, 0 );
+add_action( 'admin_init', __NAMESPACE__ . '\add_settings_field' );
 /**
  * Register the settings field for the measurement ID.
  *
  * @return void
  * @since 1.0.0
  */
-function tracking_code_for_google_analytics_add_settings_field() {
-	add_settings_field(
+function add_settings_field() {
+	\add_settings_field(
 		'tracking_code_for_google_analytics_id_field',
 		esc_html__( 'Google Analytics', 'tracking-code-for-google-analytics' ),
-		'tracking_code_for_google_analytics_text_settings_field',
+		__NAMESPACE__ . '\text_settings_field',
 		'general',
 		'default',
 		array(
@@ -32,7 +36,7 @@ function tracking_code_for_google_analytics_add_settings_field() {
 		)
 	);
 
-	register_setting(
+	\register_setting(
 		'general',
 		'tracking_code_for_google_analytics',
 		array(
@@ -52,7 +56,7 @@ function tracking_code_for_google_analytics_add_settings_field() {
  * @return void
  * @since 1.0.0
  */
-function tracking_code_for_google_analytics_text_settings_field( $args ) {
+function text_settings_field( $args ) {
 	$args = wp_parse_args(
 		$args,
 		array(

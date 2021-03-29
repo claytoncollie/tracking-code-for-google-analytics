@@ -11,6 +11,8 @@
  * @package         Tracking_Code_For_Google_Analytics
  */
 
+namespace Tracking_Code_For_Google_Analytics;
+
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;

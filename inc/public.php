@@ -5,19 +5,21 @@
  * @package Tracking_Code_For_Google_Analytics
  */
 
+namespace Tracking_Code_For_Google_Analytics;
+
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-add_action( 'wp_head', 'tracking_code_for_google_analytics_do_the_script', 1, 0 );
+add_action( 'wp_head', __NAMESPACE__ . '\do_the_script' );
 /**
  * Output the tracking code snippet to the frontend.
  *
  * @return void
  * @since 1.0.0
  */
-function tracking_code_for_google_analytics_do_the_script() {
+function do_the_script() {
 	/**
 	 * Filter the measurement_id variable to support other methods of setting this value.
 	 *
