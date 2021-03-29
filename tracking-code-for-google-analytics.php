@@ -6,7 +6,7 @@
  * Author:          Clayton Collie
  * Author URI:      https://github.com/claytoncollie
  * Text Domain:     tracking-code-for-google-analytics
- * Version:         1.0.1
+ * Version:         1.1.0
  *
  * @package         Tracking_Code_For_Google_Analytics
  */
