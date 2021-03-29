@@ -34,6 +34,7 @@ node_modules
 phpcs.xml
 .phpcs.xml.dist
 phpcs.xml.dist
+phpstan.neon.dist
 README.md
 tests
 webpack.config.js
