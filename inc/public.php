@@ -19,7 +19,7 @@ add_action( 'wp_head', __NAMESPACE__ . '\do_the_script' );
  * @return void
  * @since 1.0.0
  */
-function do_the_script() {
+function do_the_script() : void {
 	/**
 	 * Filter the measurement_id variable to support other methods of setting this value.
 	 *

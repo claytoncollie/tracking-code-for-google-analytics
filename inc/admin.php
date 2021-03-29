@@ -21,7 +21,7 @@ add_action( 'admin_init', __NAMESPACE__ . '\add_settings_field' );
  * @return void
  * @since 1.0.0
  */
-function add_settings_field() {
+function add_settings_field() : void {
 	\add_settings_field(
 		'tracking_code_for_google_analytics_id_field',
 		esc_html__( 'Google Analytics', 'tracking-code-for-google-analytics' ),
@@ -56,7 +56,7 @@ function add_settings_field() {
  * @return void
  * @since 1.0.0
  */
-function text_settings_field( $args ) {
+function text_settings_field( array $args ) : void {
 	$args = wp_parse_args(
 		$args,
 		array(
