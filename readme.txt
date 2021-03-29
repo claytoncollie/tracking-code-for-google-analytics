@@ -5,7 +5,7 @@ Tags: google, analytics, tracking code, measurement, universal analytics, tracki
 Requires at least: 5.0
 Tested up to: 5.7.0
 Requires PHP: 7.2
-Stable tag: 1.0.1
+Stable tag: 1.1.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,7 +23,7 @@ Tracking Code For Google Analytics is a simple, lightweight WordPress plugin for
 
 If you want to set the measurement ID without using the wp-admin user interface, use the filter below.
 
-`
+```php
 add_filter(
 	'tracking_code_for_google_analytics_id',
 	/**
@@ -37,7 +37,7 @@ add_filter(
 		return 'UA-7654321';
 	}
 );
-`
+```
 
 ### Contributing
 
@@ -78,6 +78,17 @@ No. This plugin is intentionally lightweight. All it does is register a settings
 [https://packagist.org/packages/claytoncollie/tracking-code-for-google-analytics](https://packagist.org/packages/claytoncollie/tracking-code-for-google-analytics)
 
 == Changelog ==
+
+= 1.1.0 =
+* Use PHP Namespaces
+* Use PHP type hinting
+* Use GitHub Action to matrix test PHP with WP
+* Add donation link to Coinbase
+* Fix URLs in readme files
+* Fix markdown syntax for changelog in readme.txt
+* Ignore phpstan config from deployed plugin
+* Ignore CONTRIBUTING.md from deployed plugin
+* Test with WordPress version 5.7.0
 
 = 1.0.1 =
 * Update documentation
