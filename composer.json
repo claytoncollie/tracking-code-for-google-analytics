@@ -15,11 +15,13 @@
         "phpcompatibility/phpcompatibility-wp": "2.1.0",
         "squizlabs/php_codesniffer": "^3.5.8",
         "phpstan/phpstan": "^0.12.51",
-        "szepeviktor/phpstan-wordpress": "^0.6.6"
+        "szepeviktor/phpstan-wordpress": "^0.6.6",
+        "wpreadme2markdown/wp2md": "^3.1"
     },
     "scripts": {
         "phpcbf": "@php ./vendor/bin/phpcbf",
         "phpcs": "@php ./vendor/bin/phpcs",
-        "phpstan": "@php vendor/bin/phpstan analyse"
+        "phpstan": "@php vendor/bin/phpstan analyse",
+        "readme": "wp2md -i readme.txt -o README.md"
     }
 }
