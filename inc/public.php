@@ -17,17 +17,10 @@ add_action( 'wp_head', 'tracking_code_for_google_analytics_do_the_script', 1, 0 
  * @return void
  * @since 1.0.0
  */
-function tracking_code_for_google_analytics_do_the_script() {
-	/**
-	 * Filter the measurement_id variable to support other methods of setting this value.
-	 *
-	 * @param string $measurement_id The Google Analytics measurement ID.
-	 * @return string
-	 * @since 1.0.0
-	 */
-	$measurement_id = apply_filters( 'tracking_code_for_google_analytics_id', get_option( 'tracking_code_for_google_analytics', '' ) );
+function tracking_code_for_google_analytics_do_the_script() : void {
+	$tracking_id = tracking_code_for_google_analytics_id();
 
-	if ( '' === $measurement_id ) {
+	if ( '' === $tracking_id ) {
 		return;
 	}
 
@@ -44,6 +37,6 @@ function tracking_code_for_google_analytics_do_the_script() {
 		</script>
 		',
 		// phpcs:enable
-		esc_attr( $measurement_id )
+		esc_attr( $tracking_id )
 	);
 }
