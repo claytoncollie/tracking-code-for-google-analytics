@@ -17,8 +17,8 @@ add_action( 'admin_init', 'tracking_code_for_google_analytics_add_settings_field
  * @return void
  * @since 1.0.0
  */
-function tracking_code_for_google_analytics_add_settings_field() {
-	add_settings_field(
+function tracking_code_for_google_analytics_add_settings_field() : void {
+	\add_settings_field(
 		'tracking_code_for_google_analytics_id_field',
 		esc_html__( 'Google Analytics', 'tracking-code-for-google-analytics' ),
 		'tracking_code_for_google_analytics_text_settings_field',
@@ -27,8 +27,9 @@ function tracking_code_for_google_analytics_add_settings_field() {
 		array(
 			'id'          => 'tracking-code-for-google-analytics',
 			'name'        => 'tracking_code_for_google_analytics',
-			'value'       => get_option( 'tracking_code_for_google_analytics', '' ),
+			'value'       => tracking_code_for_google_analytics_id(),
 			'description' => esc_html__( 'Enter your Google Analytics measurement ID eg. UA-1234567', 'tracking-code-for-google-analytics' ),
+			'disabled'    => defined( 'TRACKING_CODE_FOR_GOOGLE_ANALYTICS_ID' ) || has_filter( 'tracking_code_for_google_analytics_id' ) ? 'disabled' : '',
 		)
 	);
 
@@ -52,7 +53,7 @@ function tracking_code_for_google_analytics_add_settings_field() {
  * @return void
  * @since 1.0.0
  */
-function tracking_code_for_google_analytics_text_settings_field( $args ) {
+function tracking_code_for_google_analytics_text_settings_field( array $args ) : void {
 	$args = wp_parse_args(
 		$args,
 		array(
@@ -60,14 +61,16 @@ function tracking_code_for_google_analytics_text_settings_field( $args ) {
 			'name'        => '',
 			'value'       => '',
 			'description' => '',
+			'disabled'    => '',
 		)
 	);
 
 	printf(
-		'<input type="text" id="%1$s" name="%1$s" value="%2$s" aria-describedby="%3$s-description" class="regular-text ltr" /><p class="description" id="%3$s-description">%4$s</p>',
+		'<input type="text" id="%1$s" name="%1$s" value="%2$s" aria-describedby="%3$s-description" class="regular-text ltr" %5$s /><p class="description" id="%3$s-description">%4$s</p>',
 		esc_attr( $args['name'] ),
 		esc_attr( $args['value'] ),
 		esc_attr( $args['id'] ),
-		esc_html( $args['description'] )
+		esc_html( $args['description'] ),
+		esc_html( $args['disabled'] )
 	);
 }
