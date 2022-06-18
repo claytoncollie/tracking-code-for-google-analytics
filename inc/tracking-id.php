@@ -25,7 +25,7 @@ function tracking_code_for_google_analytics_id() : string {
 	/**
 	 * Filter the tracking_id variable to support other methods of setting this value.
 	 *
-	 * @param string $tracking_id The Google Analytics measurement ID.
+	 * @param string $tracking_id The Google Analytics tracking ID.
 	 * @return string
 	 * @since 1.0.0
 	 */

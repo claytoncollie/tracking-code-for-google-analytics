@@ -21,3 +21,7 @@ While the purpose of this plugin is to be very tightly scoped, issues and pull r
 `composer run phpcs`
 
 `composer run phpstan`
+
+5. Update the README.md with this command
+
+`composer run readme`

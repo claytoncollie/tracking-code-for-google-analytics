@@ -7,8 +7,6 @@
 
 namespace Tracking_Code_For_Google_Analytics;
 
-// use function Tracking_Code_For_Google_Analytics\text_settings_field as text_settings_field;
-
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
@@ -16,7 +14,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 add_action( 'admin_init', __NAMESPACE__ . '\add_settings_field' );
 /**
- * Register the settings field for the measurement ID.
+ * Register the settings field for the tracking ID.
  *
  * @return void
  * @since 1.0.0
@@ -32,7 +30,7 @@ function add_settings_field() : void {
 			'id'          => 'tracking-code-for-google-analytics',
 			'name'        => 'tracking_code_for_google_analytics',
 			'value'       => tracking_code_for_google_analytics_id(),
-			'description' => esc_html__( 'Enter your Google Analytics measurement ID eg. UA-1234567', 'tracking-code-for-google-analytics' ),
+			'description' => esc_html__( 'Enter your Google Analytics tracking ID eg. UA-1234567', 'tracking-code-for-google-analytics' ),
 			'disabled'    => defined( 'TRACKING_CODE_FOR_GOOGLE_ANALYTICS_ID' ) || has_filter( 'tracking_code_for_google_analytics_id' ) ? 'disabled' : '',
 		)
 	);
@@ -42,7 +40,7 @@ function add_settings_field() : void {
 		'tracking_code_for_google_analytics',
 		array(
 			'type'              => 'string',
-			'description'       => esc_html__( 'Google Analytics measurement ID', 'tracking-code-for-google-analytics' ),
+			'description'       => esc_html__( 'Google Analytics tracking ID', 'tracking-code-for-google-analytics' ),
 			'sanitize_callback' => 'sanitize_text_field',
 			'show_in_rest'      => true,
 			'default'           => '',
@@ -51,7 +49,7 @@ function add_settings_field() : void {
 }
 
 /**
- * Text field for measurement ID.
+ * Text field for tracking ID.
  *
  * @param array $args The field settings.
  * @return void
