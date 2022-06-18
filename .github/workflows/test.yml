@@ -3,7 +3,7 @@ name: Automated Testing
 on:
   push:
     branches:
-      - master
+      - 'master'
   pull_request:
 
 jobs:
