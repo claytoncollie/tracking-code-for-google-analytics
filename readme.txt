@@ -29,7 +29,7 @@ add_filter(
 	/**
 	 * Set Google Analytics tracking ID.
 	 *
-	 * @param string $tracking_id Measurement ID.
+	 * @param string $tracking_id Tracking ID.
 	 *
 	 * @return string
 	 */

@@ -1,10 +1,20 @@
 # Tracking Code for Google Analytics
 
+**Contributors:** claytoncollie \
+**Donate link:** https://commerce.coinbase.com/checkout/2aa628a4-f12e-4231-a6eb-9887ddc6e9aa \
+**Tags:** google, analytics, tracking code, tracking, universal analytics, tracking snippet \
+**Requires at least:** 5.0 \
+**Tested up to:** 6.0.0 \
+**Requires PHP:** 7.2 \
+**Stable tag:** 1.1.0 \
+**License:** GPLv3 or later \
+**License URI:** https://www.gnu.org/licenses/gpl-2.0.html
+
 Simple, lightweight solution for inserting your Google Analytics Universal tracking code.
 
 ## Description
 
-Tracking Code For Google Analytics is a simple, lightweight WordPress plugin for inserting your Google Analytics Universal Analytics tracking code. The plugin does one thing and one thing only; prints the standard Google Analytics tacking script to the `<head>` of your website. To insert your measurement ID, navigate to Settings > General and then scroll to the bottom of the page.
+Tracking Code For Google Analytics is a simple, lightweight WordPress plugin for inserting your Google Analytics Universal Analytics tracking code. The plugin does one thing and one thing only; prints the standard Google Analytics tacking script to the `<head>` of your website. To insert your tracking ID, navigate to Settings > General and then scroll to the bottom of the page.
 
 ### Composer
 
@@ -18,7 +28,7 @@ If you want to set the tracking ID without using the wp-admin user interface, us
 add_filter(
 	'tracking_code_for_google_analytics_id',
 	/**
-	 * Set Google Analytics ID.
+	 * Set Google Analytics tracking ID.
 	 *
 	 * @param string $tracking_id Tracking ID.
 	 *
@@ -32,9 +42,9 @@ add_filter(
 
 You can also define the tracking ID in your wp-config.php file with the following snippet.
 
-```php
+`
 define( 'TRACKING_CODE_FOR_GOOGLE_ANALYTICS_ID', 'UA-7654321' );
-```
+`
 
 ### Contributing
 
@@ -49,7 +59,7 @@ If you like this plugin and would like to support my work, [please consider a sm
 1. Upload `tracking-code-for-google-analytics` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Navigate to Settings > General > scroll to the bottom of the page
-4. Insert your measurement ID
+4. Insert your tracking ID
 5. Save your changes
 
 ## Frequently Asked Questions
@@ -76,7 +86,7 @@ No. This plugin is intentionally lightweight. All it does is register a settings
 
 ## Changelog
 
-### 1.1.0
+### 1.2.0
 
 * Use PHP Namespaces
 * Use PHP type hinting
@@ -86,7 +96,12 @@ No. This plugin is intentionally lightweight. All it does is register a settings
 * Fix markdown syntax for changelog in readme.txt
 * Ignore phpstan config from deployed plugin
 * Ignore CONTRIBUTING.md from deployed plugin
-* Test with WordPress version 5.7.0
+
+### 1.1.0
+
+* Add ability to define tracking in wp-config.php
+* Update documentation
+* Test with WordPress 6.0.0
 
 ### 1.0.1
 
