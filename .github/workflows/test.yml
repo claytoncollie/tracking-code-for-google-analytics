@@ -22,7 +22,7 @@ jobs:
         coverage: none
         tools: composer:v2
 
-    - name: Install Composer dependencies
+    - name: Install Composer Dependencies
       run: composer install
 
     - name: Lint Coding Standards
@@ -44,7 +44,7 @@ jobs:
         coverage: none
         tools: composer:v2
 
-    - name: Install Composer dependencies
+    - name: Install Composer Dependencies
       run: composer install
 
     - name: Static Analysis
