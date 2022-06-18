@@ -1,10 +1,10 @@
 name: Automated Testing
 
 on:
-  pull_request:
   push:
     branches:
-    - master
+      - master
+  pull_request:
 
 jobs:
   phpcs:
