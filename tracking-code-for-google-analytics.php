@@ -18,5 +18,6 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+require_once __DIR__ . '/inc/tracking-id.php';
 require_once __DIR__ . '/inc/admin.php';
 require_once __DIR__ . '/inc/public.php';

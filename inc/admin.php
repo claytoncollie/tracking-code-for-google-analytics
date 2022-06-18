@@ -31,8 +31,9 @@ function add_settings_field() : void {
 		array(
 			'id'          => 'tracking-code-for-google-analytics',
 			'name'        => 'tracking_code_for_google_analytics',
-			'value'       => get_option( 'tracking_code_for_google_analytics', '' ),
+			'value'       => tracking_code_for_google_analytics_id(),
 			'description' => esc_html__( 'Enter your Google Analytics measurement ID eg. UA-1234567', 'tracking-code-for-google-analytics' ),
+			'disabled'    => defined( 'TRACKING_CODE_FOR_GOOGLE_ANALYTICS_ID' ) || has_filter( 'tracking_code_for_google_analytics_id' ) ? 'disabled' : '',
 		)
 	);
 
@@ -64,14 +65,16 @@ function text_settings_field( array $args ) : void {
 			'name'        => '',
 			'value'       => '',
 			'description' => '',
+			'disabled'    => '',
 		)
 	);
 
 	printf(
-		'<input type="text" id="%1$s" name="%1$s" value="%2$s" aria-describedby="%3$s-description" class="regular-text ltr" /><p class="description" id="%3$s-description">%4$s</p>',
+		'<input type="text" id="%1$s" name="%1$s" value="%2$s" aria-describedby="%3$s-description" class="regular-text ltr" %5$s /><p class="description" id="%3$s-description">%4$s</p>',
 		esc_attr( $args['name'] ),
 		esc_attr( $args['value'] ),
 		esc_attr( $args['id'] ),
-		esc_html( $args['description'] )
+		esc_html( $args['description'] ),
+		esc_html( $args['disabled'] )
 	);
 }

@@ -1,15 +1,5 @@
 # Tracking Code for Google Analytics
 
-**Contributors:** claytoncollie \
-**Donate link:** https://commerce.coinbase.com/checkout/2aa628a4-f12e-4231-a6eb-9887ddc6e9aa \
-**Tags:** google, analytics, tracking code, measurement, universal analytics, tracking snippet \
-**Requires at least:** 5.0 \
-**Tested up to:** 5.7.0 \
-**Requires PHP:** 7.2 \
-**Stable tag:** 1.1.0 \
-**License:** GPLv3 or later \
-**License URI:** https://www.gnu.org/licenses/gpl-2.0.html
-
 Simple, lightweight solution for inserting your Google Analytics Universal tracking code.
 
 ## Description
@@ -22,22 +12,28 @@ Tracking Code For Google Analytics is a simple, lightweight WordPress plugin for
 
 ### Filters
 
-If you want to set the measurement ID without using the wp-admin user interface, use the filter below.
+If you want to set the tracking ID without using the wp-admin user interface, use the filter below.
 
 ```php
 add_filter(
 	'tracking_code_for_google_analytics_id',
 	/**
-	 * Set Google Analytics measurement ID.
+	 * Set Google Analytics ID.
 	 *
-	 * @param string $measurement_id Measurement ID.
+	 * @param string $tracking_id Tracking ID.
 	 *
 	 * @return string
 	 */
-	function ( $measurement_id ) {
+	function ( $tracking_id ) {
 		return 'UA-7654321';
 	}
 );
+```
+
+You can also define the tracking ID in your wp-config.php file with the following snippet.
+
+```php
+define( 'TRACKING_CODE_FOR_GOOGLE_ANALYTICS_ID', 'UA-7654321' );
 ```
 
 ### Contributing

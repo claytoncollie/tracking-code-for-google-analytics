@@ -20,16 +20,9 @@ add_action( 'wp_head', __NAMESPACE__ . '\do_the_script' );
  * @since 1.0.0
  */
 function do_the_script() : void {
-	/**
-	 * Filter the measurement_id variable to support other methods of setting this value.
-	 *
-	 * @param string $measurement_id The Google Analytics measurement ID.
-	 * @return string
-	 * @since 1.0.0
-	 */
-	$measurement_id = apply_filters( 'tracking_code_for_google_analytics_id', get_option( 'tracking_code_for_google_analytics', '' ) );
+	$tracking_id = tracking_code_for_google_analytics_id();
 
-	if ( '' === $measurement_id ) {
+	if ( '' === $tracking_id ) {
 		return;
 	}
 
@@ -46,6 +39,6 @@ function do_the_script() : void {
 		</script>
 		',
 		// phpcs:enable
-		esc_attr( $measurement_id )
+		esc_attr( $tracking_id )
 	);
 }
