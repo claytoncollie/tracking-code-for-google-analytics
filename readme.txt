@@ -5,7 +5,7 @@ Tags: google, analytics, tracking code, tracking, universal analytics, tracking 
 Requires at least: 5.0
 Tested up to: 6.0.0
 Requires PHP: 7.2
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -86,9 +86,11 @@ No. This plugin is intentionally lightweight. All it does is register a settings
 == Changelog ==
 
 = 1.2.0 =
-* Use PHP Namespaces
-* Use PHP type hinting
-* Use GitHub Action to matrix test PHP with WP
+* Bump PHP required version to 7.2
+* Add PHP Namespaces
+* Add PHP type hinting
+* Add static analysis tests
+* Add automated testing before deploying to wordpress.org
 * Add donation link to Coinbase
 * Fix URLs in readme files
 * Fix markdown syntax for changelog in readme.txt
