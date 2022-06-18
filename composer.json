@@ -18,10 +18,19 @@
         "szepeviktor/phpstan-wordpress": "^0.7.5",
         "wpreadme2markdown/wp2md": "^3.1"
     },
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"phpstan/extension-installer": true
+		}
+	},
     "scripts": {
         "phpcbf": "@php ./vendor/bin/phpcbf",
         "phpcs": "@php ./vendor/bin/phpcs",
         "phpstan": "@php vendor/bin/phpstan analyse",
-        "readme": "wp2md -i readme.txt -o README.md"
+        "readme": "wp2md -i readme.txt -o README.md",
+		"install-coding-standards": "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run",
+		"post-install-cmd": "@install-coding-standards",
+		"post-update-cmd": "@install-coding-standards"
     }
 }
