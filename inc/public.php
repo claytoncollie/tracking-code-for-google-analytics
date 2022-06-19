@@ -7,21 +7,20 @@
 
 namespace Tracking_Code_For_Google_Analytics;
 
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
-}
+use function Tracking_Code_For_Google_Analytics\get_the_id;
 
-add_action( 'wp_head', __NAMESPACE__ . '\do_the_script' );
+add_action( 'wp_head', __NAMESPACE__ . '\global_site_tag' );
 /**
- * Output the tracking code snippet to the frontend.
+ * Maybe print the tracking code snippet on the frontend.
  *
  * @return void
+ *
  * @since 1.0.0
  */
-function do_the_script() : void {
-	$tracking_id = tracking_code_for_google_analytics_id();
+function global_site_tag() : void {
+	$tracking_id = get_the_id();
 
+	// Bail early if empty.
 	if ( '' === $tracking_id ) {
 		return;
 	}

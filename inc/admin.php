@@ -7,37 +7,38 @@
 
 namespace Tracking_Code_For_Google_Analytics;
 
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
-}
+use function Tracking_Code_For_Google_Analytics\get_the_id;
+use const Tracking_Code_For_Google_Analytics\CONFIG_NAME;
+use const Tracking_Code_For_Google_Analytics\FILTER_NAME;
+use const Tracking_Code_For_Google_Analytics\OPTION_NAME;
 
-add_action( 'admin_init', __NAMESPACE__ . '\add_settings_field' );
+add_action( 'admin_init', __NAMESPACE__ . '\register_setting' );
 /**
  * Register the settings field for the tracking ID.
  *
  * @return void
+ *
  * @since 1.0.0
  */
-function add_settings_field() : void {
+function register_setting() : void {
 	\add_settings_field(
 		'tracking_code_for_google_analytics_id_field',
 		esc_html__( 'Google Analytics', 'tracking-code-for-google-analytics' ),
-		__NAMESPACE__ . '\text_settings_field',
+		__NAMESPACE__ . '\input_field',
 		'general',
 		'default',
 		array(
-			'id'          => 'tracking-code-for-google-analytics',
-			'name'        => 'tracking_code_for_google_analytics',
-			'value'       => tracking_code_for_google_analytics_id(),
+			'id'          => OPTION_NAME,
+			'name'        => OPTION_NAME,
+			'value'       => get_the_id(),
 			'description' => esc_html__( 'Enter your Google Analytics tracking ID eg. UA-1234567', 'tracking-code-for-google-analytics' ),
-			'disabled'    => defined( 'TRACKING_CODE_FOR_GOOGLE_ANALYTICS_ID' ) || has_filter( 'tracking_code_for_google_analytics_id' ) ? 'disabled' : '',
+			'disabled'    => defined( CONFIG_NAME ) || has_filter( FILTER_NAME ) ? 'disabled' : '',
 		)
 	);
 
 	\register_setting(
 		'general',
-		'tracking_code_for_google_analytics',
+		OPTION_NAME,
 		array(
 			'type'              => 'string',
 			'description'       => esc_html__( 'Google Analytics tracking ID', 'tracking-code-for-google-analytics' ),
@@ -49,13 +50,15 @@ function add_settings_field() : void {
 }
 
 /**
- * Text field for tracking ID.
+ * WordPress admin input field.
  *
  * @param array $args The field settings.
+ *
  * @return void
+ *
  * @since 1.0.0
  */
-function text_settings_field( array $args ) : void {
+function input_field( array $args ) : void {
 	$args = wp_parse_args(
 		$args,
 		array(
