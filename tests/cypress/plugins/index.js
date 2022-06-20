@@ -28,6 +28,6 @@ module.exports = async (on, config) => {
       config.baseUrl = wpEnvConfig.env.tests.config.WP_TESTS_DOMAIN;
     }
   }
-config.baseUrl = 'https://tracking.local';
+
   return config;
 };
