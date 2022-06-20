@@ -5,7 +5,7 @@ Tags: google, analytics, tracking code, tracking, universal analytics, tracking 
 Requires at least: 5.0
 Tested up to: 6.0.0
 Requires PHP: 7.2
-Stable tag: 1.2.0
+Stable tag: 2.0.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,7 +17,9 @@ Tracking Code For Google Analytics is a simple, lightweight WordPress plugin for
 
 ### Composer
 
-`composer require claytoncollie/tracking-code-for-google-analytics`
+```php
+composer require claytoncollie/tracking-code-for-google-analytics
+```
 
 ### Filters
 
@@ -33,17 +35,18 @@ add_filter(
 	 *
 	 * @return string
 	 */
-	function ( $tracking_id ) {
-		return 'UA-7654321';
+	function ( string $tracking_id ) : string {
+		$tracking_id = 'UA-7654321';
+		return $tracking_id;
 	}
 );
 ```
 
 You can also define the tracking ID in your wp-config.php file with the following snippet.
 
-`
+```php
 define( 'TRACKING_CODE_FOR_GOOGLE_ANALYTICS_ID', 'UA-7654321' );
-`
+```
 
 ### Contributing
 
@@ -85,7 +88,7 @@ No. This plugin is intentionally lightweight. All it does is register a settings
 
 == Changelog ==
 
-= 1.2.0 =
+= 2.0.0 =
 * Bump PHP required version to 7.2
 * Add PHP Namespaces
 * Add PHP type hinting
