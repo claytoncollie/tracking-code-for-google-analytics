@@ -1,6 +1,7 @@
 describe('Set tracking ID with option in admin UI', () => {
     before(() => {
         cy.login();
+		cy.activatePlugin('tracking-code-for-google-analytics');
     });
 
     it('Can admin set tracking id?', () => {
