@@ -94,14 +94,17 @@ No. This plugin is intentionally lightweight. All it does is register a settings
 
 ### 2.0.0
 
+* Major version. Test locally before updating.
 * Bump PHP required version to 7.2
 * Add PHP Namespaces
-* Add PHP type hinting
-* Add static analysis tests
-* Add automated testing before deploying to wordpress.org
+* Add PHP parameter type hinting
+* Add PHP return type hintinng
+* Add automated static analysis GitHub action
+* Add automated code linting GitHub action
 * Add donation link to Coinbase
 * Fix URLs in readme files
 * Fix markdown syntax for changelog in readme.txt
+* Change callback names
 * Ignore phpstan config from deployed plugin
 * Ignore CONTRIBUTING.md from deployed plugin
 

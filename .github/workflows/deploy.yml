@@ -5,53 +5,9 @@ on:
     types: [published]
 
 jobs:
-  phpcs:
-    name: Code Linting
+  tag:
+    name: New release
     runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '7.4'
-        coverage: none
-        tools: composer:v2
-
-    - name: Install Composer dependencies
-      run: composer install
-
-    - name: Lint Coding Standards
-      run: composer run phpcs
-
-  phpstan:
-    name: Static Analysis
-    runs-on: ubuntu-latest
-    needs: phpcs
-
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '7.4'
-        coverage: none
-        tools: composer:v2
-
-    - name: Install Composer dependencies
-      run: composer install
-
-    - name: Static Analysis
-      run: composer run phpstan
-
-  deploy:
-    name: Deploy to wordpress.org
-    runs-on: ubuntu-latest
-    needs: [phpcs,phpstan]
 
     steps:
     - name: Checkout code
@@ -59,7 +15,6 @@ jobs:
 
     - name: WordPress Plugin Deploy
       uses: 10up/action-wordpress-plugin-deploy@stable
-      id: deploy
       with:
         generate-zip: true
       env:
