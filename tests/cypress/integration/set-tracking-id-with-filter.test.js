@@ -2,7 +2,6 @@ describe("Set tracking ID with PHP filter", () => {
 	// before(() => {
 	// cy.wpCli('plugin scaffold tracking-code-for-google-analytics-id --skip-tests --activate');
 	// cy.login('clayton','clayton');
-	// cy.activatePlugin('tracking-code-for-google-analytics');
 	// cy.activatePlugin('tracking-code-for-google-analytics-id');
 	// 	cy.wpCliEval("<?php echo file_put_contents('../../mu-plugins/tracking-code-for-google-analytics-id.php', '<?php add_filter('tracking_code_for_google_analytics_id', function() { return 'filter'; }); ?>'); ?>");
 	// });

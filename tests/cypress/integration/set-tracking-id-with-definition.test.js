@@ -1,7 +1,6 @@
 describe("Set tracking ID with wp-config definition", () => {
 	before(() => {
 		cy.login();
-		cy.activatePlugin("tracking-code-for-google-analytics");
 		cy.wpCli(
 			"config set TRACKING_CODE_FOR_GOOGLE_ANALYTICS_ID definition --add --raw"
 		);
@@ -24,6 +23,12 @@ describe("Set tracking ID with wp-config definition", () => {
 		cy.visit("/");
 		cy.document().get(
 			'head script[src*="https://www.googletagmanager.com/gtag/js?id=definition"]'
+		);
+	});
+
+	after(() => {
+		cy.wpCli(
+			"config delete TRACKING_CODE_FOR_GOOGLE_ANALYTICS_ID"
 		);
 	});
 });
