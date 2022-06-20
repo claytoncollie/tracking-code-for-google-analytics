@@ -18,7 +18,7 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '7.4'
+        php-version: '7.2'
         coverage: none
         tools: composer:v2
 
@@ -40,7 +40,7 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '7.4'
+        php-version: '7.2'
         coverage: none
         tools: composer:v2
 
@@ -49,3 +49,34 @@ jobs:
 
     - name: Static Analysis
       run: composer run phpstan
+  
+  cypress:
+    name: ${{ matrix.core.name }}
+    runs-on: ubuntu-latest
+    needs: [phpcs,phpstan]
+    strategy:
+      matrix:
+        core:
+          - {name: 'WP latest', version: 'latest'}
+          - {name: 'WP minimum', version: 'WordPress/WordPress#5.0'}
+          - {name: 'WP trunk', version: 'WordPress/WordPress#master'}
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Composer
+      run: composer install
+      continue-on-error: true
+
+    - name: Set the core version
+      run: ./tests/bin/set-core-version.js ${{ matrix.core.version }}
+
+    - name: Set up WP environment
+      run: npm run env:start
+
+    - name: e2e Test
+      run: npm run cypress:run
