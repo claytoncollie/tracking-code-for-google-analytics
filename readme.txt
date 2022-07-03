@@ -93,13 +93,14 @@ No. This plugin is intentionally lightweight. All it does is register a settings
 * Bump PHP required version to 7.2
 * Add PHP Namespaces
 * Add PHP parameter type hinting
-* Add PHP return type hintinng
+* Add PHP return type hinting
 * Add automated static analysis GitHub action
 * Add automated code linting GitHub action
+* Add automated acceptance tests GitHub Action
 * Add donation link to Coinbase
 * Fix URLs in readme files
 * Fix markdown syntax for changelog in readme.txt
-* Change callback names
+* Change callback names. Possible breaking change.
 * Ignore phpstan config from deployed plugin
 * Ignore CONTRIBUTING.md from deployed plugin
 
