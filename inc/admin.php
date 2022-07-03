@@ -52,7 +52,7 @@ function register_setting() : void {
 /**
  * WordPress admin input field.
  *
- * @param array $args The field settings.
+ * @param array<string> $args The field settings.
  *
  * @return void
  *
