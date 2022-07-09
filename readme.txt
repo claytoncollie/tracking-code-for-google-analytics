@@ -42,6 +42,8 @@ add_filter(
 );
 ```
 
+### Definitions
+
 You can also define the tracking ID in your wp-config.php file with the following snippet.
 
 ```php
@@ -89,18 +91,19 @@ No. This plugin is intentionally lightweight. All it does is register a settings
 == Changelog ==
 
 = 2.0.0 =
-* Major version. Test locally before updating.
+* Major version. Possible breaking changes. Test locally before updating.
+* Change callback names. Possible breaking change.
 * Bump PHP required version to 7.2
 * Add PHP Namespaces
 * Add PHP parameter type hinting
 * Add PHP return type hinting
 * Add automated static analysis GitHub action
 * Add automated code linting GitHub action
-* Add automated acceptance tests GitHub Action
+* Add automated acceptance tests GitHub action
+* Add automated WordPress version checker  GitHub action
 * Add donation link to Coinbase
 * Fix URLs in readme files
 * Fix markdown syntax for changelog in readme.txt
-* Change callback names. Possible breaking change.
 * Ignore phpstan config from deployed plugin
 * Ignore CONTRIBUTING.md from deployed plugin
 
