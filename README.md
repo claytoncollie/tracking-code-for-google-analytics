@@ -6,7 +6,7 @@
 **Requires at least:** 5.0 \
 **Tested up to:** 6.0.0 \
 **Requires PHP:** 7.2 \
-**Stable tag:** 2.0.2 \
+**Stable tag:** 2.0.3 \
 **License:** GPLv3 or later \
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -87,6 +87,11 @@ No. This plugin is intentionally lightweight. All it does is register a settings
 [https://packagist.org/packages/claytoncollie/tracking-code-for-google-analytics](https://packagist.org/packages/claytoncollie/tracking-code-for-google-analytics)
 
 ## Changelog
+
+### 2.0.3
+
+* Fix readme markdown
+* Bump patch version to deploy
 
 ### 2.0.2
 
