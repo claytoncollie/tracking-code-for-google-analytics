@@ -1,6 +1,6 @@
 {
 	"name": "tracking-code-for-google-analytics",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"description": "Simple, lightweight solution for inserting your Google Analytics Universal tracking code.",
 	"author": "Clayton Collie",
 	"license": "GPL-3.0-or-later",
