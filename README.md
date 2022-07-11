@@ -18,16 +18,13 @@ Tracking Code For Google Analytics is a simple, lightweight WordPress plugin for
 
 ### Composer
 
-```
-composer require claytoncollie/tracking-code-for-google-analytics
-```
+`composer require claytoncollie/tracking-code-for-google-analytics`
 
 ### Filters
 
 If you want to set the tracking ID without using the wp-admin user interface, use the filter below.
 
-```
-add_filter(
+`add_filter(
 	'tracking_code_for_google_analytics_id',
 	/**
 	 * Set Google Analytics tracking ID.
@@ -43,16 +40,13 @@ add_filter(
 
 		return $tracking_id;
 	}
-);
-```
+);`
 
 ### Definitions
 
 You can also define the tracking ID in your wp-config.php file with the following snippet.
 
-```
-define( 'TRACKING_CODE_FOR_GOOGLE_ANALYTICS_ID', 'UA-7654321' );
-```
+`define( 'TRACKING_CODE_FOR_GOOGLE_ANALYTICS_ID', 'UA-7654321' );`
 
 ### Contributing
 
