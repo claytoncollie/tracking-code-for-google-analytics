@@ -90,6 +90,9 @@ No. This plugin is intentionally lightweight. All it does is register a settings
 
 == Changelog ==
 
+= 2.0.1 =
+* Patch version bump to deploy properly
+
 = 2.0.0 =
 * Major version. Possible breaking changes. Test locally before updating.
 * Change callback names. Possible breaking change.
