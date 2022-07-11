@@ -1,0 +1,10 @@
+parameters:
+	level: max
+	bootstrapFiles:
+		- vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
+		- vendor/szepeviktor/phpstan-wordpress/bootstrap.php
+	paths:
+		- tracking-code-for-google-analytics.php
+		- inc/admin.php
+		- inc/public.php
+		- inc/tracking-id.php

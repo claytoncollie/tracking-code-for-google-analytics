@@ -1,0 +1,29 @@
+{
+	"name": "tracking-code-for-google-analytics",
+	"version": "2.0.0",
+	"description": "Simple, lightweight solution for inserting your Google Analytics Universal tracking code.",
+	"author": "Clayton Collie",
+	"license": "GPL-3.0-or-later",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:claytoncollie/tracking-code-for-google-analytics.git"
+	},
+	"scripts": {
+		"cypress:open": "cypress open --config-file tests/cypress/config.json",
+		"cypress:run": "cypress run --config-file tests/cypress/config.json",
+		"env": "wp-env",
+		"env:start": "wp-env start",
+		"env:stop": "wp-env stop",
+		"postenv:start": "./tests/bin/initialize.sh"
+	},
+	"directories": {
+		"test": "tests"
+	},
+	"devDependencies": {
+		"@10up/cypress-wp-utils": "github:10up/cypress-wp-utils#build",
+		"@types/node": "^18.0.0",
+		"@wordpress/env": "^4.9.0",
+		"@wordpress/scripts": "^23.3.0",
+		"cypress": "^9.5.4"
+	}
+}

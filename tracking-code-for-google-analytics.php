@@ -6,15 +6,16 @@
  * Author:          Clayton Collie
  * Author URI:      https://github.com/claytoncollie
  * Text Domain:     tracking-code-for-google-analytics
- * Version:         1.1.0
+ * Version:         2.0.0
  *
  * @package         Tracking_Code_For_Google_Analytics
  */
 
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
-}
+namespace Tracking_Code_For_Google_Analytics;
+
+const OPTION_NAME = 'tracking_code_for_google_analytics';
+const FILTER_NAME = 'tracking_code_for_google_analytics_id';
+const CONFIG_NAME = 'TRACKING_CODE_FOR_GOOGLE_ANALYTICS_ID';
 
 require_once __DIR__ . '/inc/tracking-id.php';
 require_once __DIR__ . '/inc/admin.php';

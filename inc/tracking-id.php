@@ -5,10 +5,11 @@
  * @package Tracking_Code_For_Google_Analytics
  */
 
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
-}
+namespace Tracking_Code_For_Google_Analytics;
+
+use const Tracking_Code_For_Google_Analytics\CONFIG_NAME;
+use const Tracking_Code_For_Google_Analytics\FILTER_NAME;
+use const Tracking_Code_For_Google_Analytics\OPTION_NAME;
 
 /**
  * Get the tracking ID.
@@ -16,28 +17,38 @@ if ( ! defined( 'WPINC' ) ) {
  * @return string
  * @since 1.1.0
  */
-function tracking_code_for_google_analytics_id() : string {
-	$tracking_id = '';
-
-	// Get option value from database.
-	$tracking_id = get_option( 'tracking_code_for_google_analytics' );
-
+function get_the_id() : string {
 	/**
-	 * Filter the tracking_id variable to support other methods of setting this value.
-	 *
-	 * @param string $tracking_id The Google Analytics measurement ID.
-	 * @return string
-	 * @since 1.0.0
-	 */
-	$tracking_id = apply_filters( 'tracking_code_for_google_analytics_id', $tracking_id );
-
-	/**
-	 * In addition to the filter above, this plugin also supports wp-config definitions.
+	 * Define the tracking ID in your wp-config file.
 	 *
 	 * @see https://www.wpbeginner.com/glossary/wp-config-php/
+	 *
 	 * @since 1.1.0
 	 */
-	$tracking_id = defined( 'TRACKING_CODE_FOR_GOOGLE_ANALYTICS_ID' ) ? \TRACKING_CODE_FOR_GOOGLE_ANALYTICS_ID : $tracking_id;
+	if ( defined( CONFIG_NAME ) ) {
+		return \TRACKING_CODE_FOR_GOOGLE_ANALYTICS_ID;
+	}
 
-	return $tracking_id;
+	/**
+	 * Define the tracking ID in with a filter.
+	 *
+	 * @param string $tracking_id The Google Analytics tracking ID.
+	 *
+	 * @return string
+	 *
+	 * @since 1.0.0
+	 */
+	if ( has_filter( FILTER_NAME ) ) {
+		return apply_filters( FILTER_NAME, '' );
+	}
+
+	/**
+	 * If we are not defining the tracking ID with a definition in our wp-config file,
+	 * and we are not defining the tracking ID with a PHP filter,
+	 * then we will query the tracking ID from the database.
+	 *
+	 * @since 1.0.0
+	 */
+	return get_option( OPTION_NAME, '' );
+
 }

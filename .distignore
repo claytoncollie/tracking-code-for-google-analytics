@@ -21,6 +21,7 @@ bin
 .circleci/config.yml
 composer.json
 composer.lock
+CONTRIBUTING.md
 dependencies.yml
 Gruntfile.js
 package.json
@@ -34,6 +35,8 @@ node_modules
 phpcs.xml
 .phpcs.xml.dist
 phpcs.xml.dist
+phpstan.neon
+phpstan.neon.dist
 README.md
 tests
 webpack.config.js

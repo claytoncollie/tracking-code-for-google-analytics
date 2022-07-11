@@ -2,22 +2,46 @@
 
 While the purpose of this plugin is to be very tightly scoped, issues and pull requests are welcome, but I do not guarantee that everything will be merged or support will be given.
 
-1. Clone the repository to your `wp-content/plugins/` directory.
+1. Fork and clone the repository to your `wp-content/plugins/` directory.
 
-`git clone git@github.com:claytoncollie/tracking-code-for-google-analytics.git`
+```shell
+git clone git@github.com:<your_name_here>/tracking-code-for-google-analytics.git
+```
 
 2. Navigate into the directory.
 
-`cd tracking-code-for-google-analytics`
+```shell
+cd tracking-code-for-google-analytics
+```
 
 3. Install Composer dependencies.
 
-`composer install`
+```shell
+composer install
+```
 
-4. Check your pull request with the following commands.
+4. Activate the plugin
 
-`composer run phpcbf`
+```shell
+wp plugin activate tracking-code-for-google-analytics
+```
 
-`composer run phpcs`
+5. Check your pull request with the following commands.
 
-`composer run phpstan`
+```shell
+composer run phpcbf
+```
+
+```shell
+composer run phpcs
+```
+
+```shell
+composer run phpstan
+```
+
+6. Update the README.md with this command
+
+```shell
+composer run readme
+```
