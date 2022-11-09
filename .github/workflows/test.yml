@@ -83,6 +83,11 @@ jobs:
     - name: Set the core version
       run: ./tests/bin/set-core-version.js ${{ matrix.core.version }} ${{ matrix.php.version }}
 
+    - name: Log WP environment versions
+      run: |
+        npx wp-env run cli "wp core version"
+        npx wp-env run cli "php --version"
+
     - name: Set up WP environment
       run: npm run env:start
 
