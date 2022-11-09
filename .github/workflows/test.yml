@@ -50,15 +50,24 @@ jobs:
       run: composer run phpstan
   
   cypress:
-    name: ${{ matrix.core.name }}
-    runs-on: ubuntu-latest
     needs: [phpcs,phpstan]
+    name: ${{ matrix.core.name }} / ${{ matrix.php.name }}
+    ## Pending upgrade of `@wordpress/env` package.
+    continue-on-error: ${{ matrix.core.version == 'WordPress/WordPress#master' }}
+    runs-on: ubuntu-latest
     strategy:
       matrix:
+        php:
+          - {name: 'PHP Default', version: null}
         core:
-          - {name: 'WordPress Latest', version: 'latest'}
-          - {name: 'WordPress Minimum', version: 'WordPress/WordPress#5.0'}
-          - {name: 'WordPress Trunk', version: 'WordPress/WordPress#master'}
+          - {name: 'WP stable', version: 'latest'}
+          - {name: 'WP 5.7', version: 'WordPress/WordPress#5.7'}
+          - {name: 'WP trunk', version: 'WordPress/WordPress#master'}
+        include:
+          - php: {name: 'PHP 7.4', version: '7.4'}
+            core: {name: 'WP 5.7', version: 'WordPress/WordPress#5.7'}
+          - php: {name: 'PHP 8.1', version: '8.1'}
+            core: {name: 'WP stable', version: 'latest'}
 
     steps:
     - name: Checkout
@@ -72,7 +81,7 @@ jobs:
       continue-on-error: true
 
     - name: Set the core version
-      run: ./tests/bin/set-core-version.js ${{ matrix.core.version }}
+      run: ./tests/bin/set-core-version.js ${{ matrix.core.version }} ${{ matrix.php.version }}
 
     - name: Set up WP environment
       run: npm run env:start
