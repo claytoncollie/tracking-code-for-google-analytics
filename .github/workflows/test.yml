@@ -58,16 +58,16 @@ jobs:
     strategy:
       matrix:
         php:
-          - {name: 'PHP Default', version: null}
+          - {name: 'PHP Default', version: '8.0'}
         core:
-          - {name: 'WP stable', version: 'latest'}
-          - {name: 'WP 5.7', version: 'WordPress/WordPress#5.7'}
-          - {name: 'WP trunk', version: 'WordPress/WordPress#master'}
+          - {name: 'WordPress Latest', version: 'latest'}
+          - {name: 'WordPress Minimum', version: 'WordPress/WordPress#5.0'}
+          - {name: 'WordPress Trunk', version: 'WordPress/WordPress#master'}
         include:
-          - php: {name: 'PHP 7.4', version: '7.4'}
-            core: {name: 'WP 5.7', version: 'WordPress/WordPress#5.7'}
+          - php: {name: 'PHP 7.2', version: '7.2'}
+            core: {name: 'WordPress Minimum', version: 'WordPress/WordPress#5.0'}
           - php: {name: 'PHP 8.1', version: '8.1'}
-            core: {name: 'WP stable', version: 'latest'}
+            core: {name: 'WordPress Latest', version: 'latest'}
 
     steps:
     - name: Checkout
