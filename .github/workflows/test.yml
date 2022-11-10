@@ -60,14 +60,14 @@ jobs:
         php:
           - {name: 'PHP 8.0', version: '8.0'}
         core:
-          - {name: 'WordPress Latest', version: 'latest'}
-          - {name: 'WordPress Minimum', version: 'WordPress/WordPress#5.0'}
-          - {name: 'WordPress Trunk', version: 'WordPress/WordPress#master'}
+          - {name: 'WP Latest', version: 'latest'}
+          - {name: 'WP Minimum', version: 'WordPress/WordPress#5.0'}
+          - {name: 'WP Trunk', version: 'WordPress/WordPress#master'}
         include:
           - php: {name: 'PHP 7.2', version: '7.2'}
-            core: {name: 'WordPress Minimum', version: 'WordPress/WordPress#5.0'}
+            core: {name: 'WP Minimum', version: 'WordPress/WordPress#5.0'}
           - php: {name: 'PHP 8.1', version: '8.1'}
-            core: {name: 'WordPress Latest', version: 'latest'}
+            core: {name: 'WP Latest', version: 'latest'}
 
     steps:
     - name: Checkout
