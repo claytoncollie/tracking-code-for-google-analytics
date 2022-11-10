@@ -58,7 +58,7 @@ jobs:
     strategy:
       matrix:
         php:
-          - {name: 'PHP Default', version: '8.0'}
+          - {name: 'PHP 8.0', version: '8.0'}
         core:
           - {name: 'WordPress Latest', version: 'latest'}
           - {name: 'WordPress Minimum', version: 'WordPress/WordPress#5.0'}
