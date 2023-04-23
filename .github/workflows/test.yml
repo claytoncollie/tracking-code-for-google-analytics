@@ -51,7 +51,7 @@ jobs:
   
   cypress:
     needs: [phpcs,phpstan]
-    name: ${{ matrix.core.name }} / ${{ matrix.php.name }}
+    name: ${{ matrix.core.name }} on ${{ matrix.php.name }}
     ## Pending upgrade of `@wordpress/env` package.
     continue-on-error: ${{ matrix.core.version == 'WordPress/WordPress#master' }}
     runs-on: ubuntu-latest
@@ -60,29 +60,37 @@ jobs:
         php:
           - {name: 'PHP 8.0', version: '8.0'}
         core:
-          - {name: 'WP Latest', version: 'latest'}
-          - {name: 'WP Minimum', version: 'WordPress/WordPress#5.0'}
-          - {name: 'WP Trunk', version: 'WordPress/WordPress#master'}
+          - {name: 'WordPress Trunk', version: 'latest'}
+          - {name: 'WordPress Stable', version: 'WordPress/WordPress#master'}
         include:
           - php: {name: 'PHP 7.2', version: '7.2'}
-            core: {name: 'WP Minimum', version: 'WordPress/WordPress#5.0'}
+            core: {name: 'WordPress 5.7.8', version: 'WordPress/WordPress#5.7.8'}
           - php: {name: 'PHP 8.1', version: '8.1'}
-            core: {name: 'WP Latest', version: 'latest'}
-
+            core: {name: 'WordPress Trunk', version: 'latest'}
+          - php: {name: 'PHP 8.2', version: '8.2'}
+            core: {name: 'WordPress Trunk', version: 'latest'}
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
+
+    - name: Use desired version of Node.js
+      uses: actions/setup-node@v3
+      with:
+          node-version-file: '.nvmrc'
+
+    - name: Check versions
+      run: npm -v; node -v
 
     - name: Install dependencies
       run: npm install
 
-    - name: Composer
+    - name: Composer install
       run: composer install
-      continue-on-error: true
 
     - name: Set the core version
-      run: ./tests/bin/set-core-version.js ${{ matrix.core.version }} ${{ matrix.php.version }}
-    
+      run: |
+        ./tests/bin/set-core-version.js ${{ matrix.core.version }} ${{ matrix.php.version }}
+        
     - name: Set up WP environment
       run: npm run env:start
 
@@ -91,5 +99,5 @@ jobs:
         npx wp-env run cli "wp core version"
         npx wp-env run cli "php --version"
 
-    - name: e2e Test
+    - name: Test
       run: npm run cypress:run
