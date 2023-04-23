@@ -30,7 +30,7 @@ const setBaseUrl = async (on, config) => {
 		const port = wpEnvConfig.env.tests.port || null;
 
 		if (port) {
-			config.baseUrl = 'http://tracking.local/';
+			config.baseUrl = 'http://localhost:80/';
 		}
 	}
 
