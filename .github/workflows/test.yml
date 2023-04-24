@@ -8,12 +8,12 @@ on:
 
 jobs:
   phpcs:
-    name: PHP Linting
+    name: PHP Coding Standards
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
@@ -29,12 +29,12 @@ jobs:
       run: composer run phpcs
 
   phpstan:
-    name: Static Analysis
+    name: PHP Static Analysis
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
@@ -50,7 +50,7 @@ jobs:
       run: composer run phpstan
   
   phpunit:
-    name: PHP Unit
+    name: PHP Unit Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -81,7 +81,7 @@ jobs:
       run: bash tests/bin/install-wp-tests.sh wordpress_test root root 127.0.0.1
     
     - name: PHPUnit
-      run: phpunit
+      run: composer run phpunit
 
   cypress:
     needs: [phpcs,phpstan,phpunit]

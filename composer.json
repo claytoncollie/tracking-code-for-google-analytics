@@ -30,6 +30,7 @@
 		"phpcbf": "@php ./vendor/bin/phpcbf",
 		"phpcs": "@php ./vendor/bin/phpcs",
 		"phpstan": "@php vendor/bin/phpstan analyse",
+		"phpunit": "@php ./vendor/bin/phpunit",
 		"readme": "wp2md -i readme.txt -o README.md",
 		"install-coding-standards": "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run",
 		"post-install-cmd": "@install-coding-standards",
