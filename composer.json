@@ -33,9 +33,6 @@
 		"readme": "wp2md -i readme.txt -o README.md",
 		"install-coding-standards": "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run",
 		"post-install-cmd": "@install-coding-standards",
-		"post-update-cmd": "@install-coding-standards",
-		"test": "phpunit",
-		"test-single-site": "phpunit -c single-site.xml.dist",
-		"setup-local-tests": "bash tests/bin/install-wp-tests.sh tracking_code_wp_test root password 127.0.0.1 latest true"
+		"post-update-cmd": "@install-coding-standards"
 	}
 }
