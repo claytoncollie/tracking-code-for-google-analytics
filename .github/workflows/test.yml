@@ -8,17 +8,17 @@ on:
 
 jobs:
   phpcs:
-    name: PHP Linting
+    name: PHP Coding Standards
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '7.2'
+        php-version: '8.0'
         coverage: none
         tools: composer:v2
 
@@ -29,17 +29,17 @@ jobs:
       run: composer run phpcs
 
   phpstan:
-    name: Static Analysis
+    name: PHP Static Analysis
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '7.2'
+        php-version: '8.0'
         coverage: none
         tools: composer:v2
 
@@ -49,33 +49,89 @@ jobs:
     - name: Static Analysis
       run: composer run phpstan
   
-  cypress:
-    name: ${{ matrix.core.name }}
+  phpunit:
+    name: PHP Unit Tests
     runs-on: ubuntu-latest
-    needs: [phpcs,phpstan]
-    strategy:
-      matrix:
-        core:
-          - {name: 'WordPress Latest', version: 'latest'}
-          - {name: 'WordPress Minimum', version: 'WordPress/WordPress#5.0'}
-          - {name: 'WordPress Trunk', version: 'WordPress/WordPress#master'}
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
+
+    - name: Start MySQL
+      run: sudo systemctl start mysql.service
+
+    - name: Configure sysctl limits
+      run: |
+        sudo swapoff -a
+        sudo sysctl -w vm.swappiness=1
+        sudo sysctl -w fs.file-max=262144
+        sudo sysctl -w vm.max_map_count=262144
+
+    - name: Set PHP version
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.0'
+        coverage: none
+        tools: composer:v2
+
+    - name: Install dependencies
+      run: composer install
+
+    - name: Setup WP Tests
+      run: bash tests/bin/install-wp-tests.sh wordpress_test root root 127.0.0.1
+    
+    - name: PHPUnit
+      run: composer run phpunit
+
+  cypress:
+    needs: [phpcs,phpstan,phpunit]
+    name: ${{ matrix.core.name }} on ${{ matrix.php.name }}
+    ## Pending upgrade of `@wordpress/env` package.
+    continue-on-error: ${{ matrix.core.version == 'WordPress/WordPress#master' }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php:
+          - {name: 'PHP 8.0', version: '8.0'}
+        core:
+          - {name: 'WordPress Trunk', version: 'latest'}
+          - {name: 'WordPress Stable', version: 'WordPress/WordPress#master'}
+        include:
+          - php: {name: 'PHP 7.2', version: '7.2'}
+            core: {name: 'WordPress 5.7.8', version: 'WordPress/WordPress#5.7.8'}
+          - php: {name: 'PHP 8.1', version: '8.1'}
+            core: {name: 'WordPress Trunk', version: 'latest'}
+          - php: {name: 'PHP 8.2', version: '8.2'}
+            core: {name: 'WordPress Trunk', version: 'latest'}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Use desired version of Node.js
+      uses: actions/setup-node@v3
+      with:
+          node-version-file: '.nvmrc'
+
+    - name: Check versions
+      run: npm -v; node -v
 
     - name: Install dependencies
       run: npm install
 
-    - name: Composer
+    - name: Composer install
       run: composer install
-      continue-on-error: true
 
     - name: Set the core version
-      run: ./tests/bin/set-core-version.js ${{ matrix.core.version }}
-
+      run: |
+        ./tests/bin/set-core-version.js ${{ matrix.core.version }} ${{ matrix.php.version }}
+        
     - name: Set up WP environment
       run: npm run env:start
 
-    - name: e2e Test
+    - name: Log WP environment versions
+      run: |
+        npx wp-env run cli "wp core version"
+        npx wp-env run cli "php --version"
+
+    - name: Test
       run: npm run cypress:run

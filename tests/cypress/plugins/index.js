@@ -19,15 +19,15 @@ const { readConfig } = require("@wordpress/env/lib/config");
  */
 // eslint-disable-next-line no-unused-vars
 module.exports = async (on, config) => {
-  wpEnvConfig = await readConfig("wp-env");
+	wpEnvConfig = await readConfig("wp-env");
 
-  if (wpEnvConfig) {
-    const port = wpEnvConfig.env.tests.port || null;
+	if (wpEnvConfig) {
+		const port = wpEnvConfig.env.tests.port || null;
 
-    if (port) {
-      config.baseUrl = wpEnvConfig.env.tests.config.WP_TESTS_DOMAIN;
-    }
-  }
+		if (port) {
+			config.baseUrl = wpEnvConfig.env.tests.config.WP_TESTS_DOMAIN;
+		}
+	}
 
-  return config;
+	return config;
 };
