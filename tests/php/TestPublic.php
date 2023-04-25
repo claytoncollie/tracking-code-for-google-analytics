@@ -7,11 +7,9 @@
 
 namespace Tracking_Code_For_Google_Analytics\Tests;
 
-use WP_UnitTestCase;
-
 use function Tracking_Code_For_Google_Analytics\get_the_id;
 
-class Public_Tests extends WP_UnitTestCase {
+class Public_Tests extends \WP_UnitTestCase {
 
 	public function test_global_site_tag_prints_script() {
 		ob_start();

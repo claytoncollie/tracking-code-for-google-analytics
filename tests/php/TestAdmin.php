@@ -7,9 +7,7 @@
 
 namespace Tracking_Code_For_Google_Analytics\Tests;
 
-use WP_UnitTestCase;
-
-class Admin_Tests extends WP_UnitTestCase {
+class Admin_Tests extends \WP_UnitTestCase {
 
 	public function test_register_setting() {
 		// Test if the register_setting() function is defined.

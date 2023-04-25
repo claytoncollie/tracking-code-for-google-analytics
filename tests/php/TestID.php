@@ -9,7 +9,7 @@ namespace Tracking_Code_For_Google_Analytics\Tests;
 
 use function Tracking_Code_For_Google_Analytics\get_the_id;
 
-class The_ID_Tests extends WP_UnitTestCase {
+class The_ID_Tests extends \WP_UnitTestCase {
 
 	/**
 	 * Test get_the_id() function with defined constant.
