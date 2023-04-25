@@ -7,6 +7,10 @@
 
 namespace Tracking_Code_For_Google_Analytics\Tests;
 
+use function Tracking_Code_For_Google_Analytics\input_field;
+
+use const Tracking_Code_For_Google_Analytics\OPTION_NAME;
+
 class Admin_Tests extends \WP_UnitTestCase {
 
 	public function test_register_setting() {

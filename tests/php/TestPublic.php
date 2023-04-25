@@ -8,6 +8,7 @@
 namespace Tracking_Code_For_Google_Analytics\Tests;
 
 use function Tracking_Code_For_Google_Analytics\get_the_id;
+use function Tracking_Code_For_Google_Analytics\global_site_tag;
 
 class Public_Tests extends \WP_UnitTestCase {
 
