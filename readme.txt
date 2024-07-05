@@ -3,7 +3,7 @@ Contributors: claytoncollie
 Donate link: https://commerce.coinbase.com/checkout/2aa628a4-f12e-4231-a6eb-9887ddc6e9aa
 Tags: google, analytics, tracking code, tracking, universal analytics, tracking snippet
 Requires at least: 5.0
-Tested up to: 6.0.0
+Tested up to: 6.6.0
 Requires PHP: 7.2
 Stable tag: 2.0.3
 License: GPLv3 or later
