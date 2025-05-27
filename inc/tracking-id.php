@@ -17,7 +17,7 @@ use const Tracking_Code_For_Google_Analytics\OPTION_NAME;
  * @return string
  * @since 1.1.0
  */
-function get_the_id() : string {
+function get_the_id(): string {
 	/**
 	 * Define the tracking ID in your wp-config file.
 	 *

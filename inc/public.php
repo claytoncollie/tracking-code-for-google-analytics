@@ -17,7 +17,7 @@ add_action( 'wp_head', __NAMESPACE__ . '\global_site_tag' );
  *
  * @since 1.0.0
  */
-function global_site_tag() : void {
+function global_site_tag(): void {
 	$tracking_id = get_the_id();
 
 	// Bail early if empty.
