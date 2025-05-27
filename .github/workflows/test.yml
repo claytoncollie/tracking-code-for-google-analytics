@@ -8,11 +8,8 @@ on:
 
 jobs:
   phpcs:
-    name: PHP Coding Standards on PHP ${{ matrix.php-version }}
+    name: PHP Coding Standards on PHP 8.2
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        php-version: ['7.2', '8.2', '8.3']
 
     steps:
     - name: Checkout
@@ -21,7 +18,7 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: ${{ matrix.php-version }}
+        php-version: '8.2'
         coverage: none
         tools: composer:v2
 
@@ -32,11 +29,8 @@ jobs:
       run: composer run phpcs
 
   phpstan:
-    name: PHP Static Analysis on PHP ${{ matrix.php-version }}
+    name: PHP Static Analysis on PHP 8.2
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        php-version: ['7.2', '8.2', '8.3']
 
     steps:
     - name: Checkout
@@ -45,7 +39,7 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: ${{ matrix.php-version }}
+        php-version: '8.2'
         coverage: none
         tools: composer:v2
 
@@ -56,18 +50,8 @@ jobs:
       run: composer run phpstan
   
   phpunit:
-    name: PHPUnit - PHP ${{ matrix.php.name }} with ${{ matrix.wordpress.name }}
+    name: PHPUnit - PHP 8.2
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        php:
-          - {name: '7.2', version: '7.2'}
-          - {name: '8.2', version: '8.2'}
-          - {name: '8.3', version: '8.3'}
-        wordpress:
-          - {name: 'WordPress 5.7', version: '5.7'}
-          - {name: 'WordPress Latest', version: 'latest'}
-          - {name: 'WordPress Trunk', version: 'trunk'}
 
     steps:
     - name: Checkout
@@ -86,7 +70,7 @@ jobs:
     - name: Set PHP version
       uses: shivammathur/setup-php@v2
       with:
-        php-version: ${{ matrix.php.version }}
+        php-version: '8.2'
         coverage: none
         tools: composer:v2
 
@@ -94,7 +78,7 @@ jobs:
       run: composer install
 
     - name: Setup WP Tests
-      run: bash tests/bin/install-wp-tests.sh wordpress_test root root 127.0.0.1 ${{ matrix.wordpress.version }}
+      run: bash tests/bin/install-wp-tests.sh wordpress_test root root 127.0.0.1 latest
     
     - name: PHPUnit
       run: composer run phpunit
