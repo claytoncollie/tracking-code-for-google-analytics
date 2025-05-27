@@ -42,8 +42,4 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets.GH_TOKEN }}
-          allowed_tools: |
-            bash
-            composer
-            npm
-            git
+          allowed_tools: "Bash(composer install),Bash(composer run phpcbf),Bash(composer run phpcs),Bash(composer run phpstan),Bash(npm install),Bash(npm run cypress:run),Bash(npm run env:start),Bash(git add .),Bash(git commit -m),Bash(git push)"
