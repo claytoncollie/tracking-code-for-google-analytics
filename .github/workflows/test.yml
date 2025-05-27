@@ -8,8 +8,11 @@ on:
 
 jobs:
   phpcs:
-    name: PHP Coding Standards
+    name: PHP Coding Standards on PHP ${{ matrix.php-version }}
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version: ['7.2', '8.2', '8.3']
 
     steps:
     - name: Checkout
@@ -18,7 +21,7 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.0'
+        php-version: ${{ matrix.php-version }}
         coverage: none
         tools: composer:v2
 
@@ -29,8 +32,11 @@ jobs:
       run: composer run phpcs
 
   phpstan:
-    name: PHP Static Analysis
+    name: PHP Static Analysis on PHP ${{ matrix.php-version }}
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version: ['7.2', '8.2', '8.3']
 
     steps:
     - name: Checkout
@@ -39,7 +45,7 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.0'
+        php-version: ${{ matrix.php-version }}
         coverage: none
         tools: composer:v2
 
@@ -50,8 +56,18 @@ jobs:
       run: composer run phpstan
   
   phpunit:
-    name: PHP Unit Tests
+    name: PHPUnit - PHP ${{ matrix.php.name }} with ${{ matrix.wordpress.name }}
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php:
+          - {name: '7.2', version: '7.2'}
+          - {name: '8.2', version: '8.2'}
+          - {name: '8.3', version: '8.3'}
+        wordpress:
+          - {name: 'WordPress 5.7', version: '5.7'}
+          - {name: 'WordPress Latest', version: 'latest'}
+          - {name: 'WordPress Trunk', version: 'trunk'}
 
     steps:
     - name: Checkout
@@ -70,7 +86,7 @@ jobs:
     - name: Set PHP version
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.0'
+        php-version: ${{ matrix.php.version }}
         coverage: none
         tools: composer:v2
 
@@ -78,31 +94,27 @@ jobs:
       run: composer install
 
     - name: Setup WP Tests
-      run: bash tests/bin/install-wp-tests.sh wordpress_test root root 127.0.0.1
+      run: bash tests/bin/install-wp-tests.sh wordpress_test root root 127.0.0.1 ${{ matrix.wordpress.version }}
     
     - name: PHPUnit
       run: composer run phpunit
 
   cypress:
     needs: [phpcs,phpstan,phpunit]
-    name: ${{ matrix.core.name }} on ${{ matrix.php.name }}
-    ## Pending upgrade of `@wordpress/env` package.
-    continue-on-error: ${{ matrix.core.version == 'WordPress/WordPress#master' }}
+    name: Cypress - PHP ${{ matrix.php.name }} with ${{ matrix.wordpress.name }}
+    continue-on-error: ${{ matrix.wordpress.version == 'WordPress/WordPress#master' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
         php:
-          - {name: 'PHP 8.0', version: '8.0'}
-        core:
-          - {name: 'WordPress Trunk', version: 'latest'}
-          - {name: 'WordPress Stable', version: 'WordPress/WordPress#master'}
-        include:
-          - php: {name: 'PHP 7.2', version: '7.2'}
-            core: {name: 'WordPress 5.7.8', version: 'WordPress/WordPress#5.7.8'}
-          - php: {name: 'PHP 8.1', version: '8.1'}
-            core: {name: 'WordPress Trunk', version: 'latest'}
-          - php: {name: 'PHP 8.2', version: '8.2'}
-            core: {name: 'WordPress Trunk', version: 'latest'}
+          - {name: '7.2', version: '7.2'}
+          - {name: '8.2', version: '8.2'}
+          - {name: '8.3', version: '8.3'}
+        wordpress:
+          - {name: 'WordPress 5.7', version: 'WordPress/WordPress#5.7.8'}
+          - {name: 'WordPress Latest', version: 'latest'}
+          - {name: 'WordPress Trunk', version: 'WordPress/WordPress#master'}
+
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -123,7 +135,7 @@ jobs:
 
     - name: Set the core version
       run: |
-        ./tests/bin/set-core-version.js ${{ matrix.core.version }} ${{ matrix.php.version }}
+        ./tests/bin/set-core-version.js ${{ matrix.wordpress.version }} ${{ matrix.php.version }}
         
     - name: Set up WP environment
       run: npm run env:start
