@@ -39,6 +39,7 @@ function get_the_id() : string {
 	 * @since 1.0.0
 	 */
 	if ( has_filter( FILTER_NAME ) ) {
+		// phpstan:ignore-next-line -- WordPress apply_filters returns mixed, but we expect string
 		return apply_filters( FILTER_NAME, '' );
 	}
 
@@ -49,6 +50,7 @@ function get_the_id() : string {
 	 *
 	 * @since 1.0.0
 	 */
+	// phpstan:ignore-next-line -- WordPress get_option returns mixed, but we expect string
 	return get_option( OPTION_NAME, '' );
 
 }
