@@ -84,7 +84,7 @@ jobs:
       run: composer run phpunit
 
   cypress:
-    needs: [phpcs,phpstan,phpunit]
+    needs: [phpcs,phpstan]
     name: Cypress - PHP ${{ matrix.php.name }} with ${{ matrix.wordpress.name }}
     continue-on-error: ${{ matrix.wordpress.version == 'WordPress/WordPress#master' }}
     runs-on: ubuntu-latest
