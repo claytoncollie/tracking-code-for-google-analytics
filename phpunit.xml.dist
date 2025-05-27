@@ -12,9 +12,9 @@
       		<directory prefix="Test" suffix=".php">./tests/php/</directory>
     	</testsuite>
   	</testsuites>
-  	<filter>
-		<whitelist>
+  	<coverage>
+		<include>
 			<directory suffix=".php">./inc</directory>
-		</whitelist>
-	</filter>
+		</include>
+	</coverage>
 </phpunit>
