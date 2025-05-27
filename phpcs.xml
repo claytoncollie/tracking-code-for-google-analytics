@@ -22,12 +22,19 @@
 	<rule ref="WordPress-Docs"/>
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
-			<property name="prefixes" type="array" value="tracking_code_for_google_analytics,FILTER_NAME,CONFIG_NAME,OPTION_NAME"/>
+			<property name="prefixes" type="array">
+				<element value="tracking_code_for_google_analytics"/>
+				<element value="FILTER_NAME"/>
+				<element value="CONFIG_NAME"/>
+				<element value="OPTION_NAME"/>
+			</property>
 		</properties>
 	</rule>
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array" value="tracking-code-for-google-analytics"/>
+			<property name="text_domain" type="array">
+				<element value="tracking-code-for-google-analytics"/>
+			</property>
 		</properties>
 	</rule>
 </ruleset>
