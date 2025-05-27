@@ -104,12 +104,59 @@ install_test_suite() {
 	if [ ! -d $WP_TESTS_DIR ]; then
 		# set up testing suite
 		mkdir -p $WP_TESTS_DIR
-		svn co --quiet https://develop.svn.wordpress.org/${WP_TESTS_TAG}/tests/phpunit/includes/ $WP_TESTS_DIR/includes
-		svn co --quiet https://develop.svn.wordpress.org/${WP_TESTS_TAG}/tests/phpunit/data/ $WP_TESTS_DIR/data
+		
+		# Use git to clone the WordPress develop repository instead of SVN
+		# Clone to a temporary directory first
+		local TEMP_WP_DIR="$TMPDIR/wordpress-develop-temp"
+		rm -rf "$TEMP_WP_DIR"
+		
+		if [[ $WP_TESTS_TAG == "trunk" ]]; then
+			git clone --depth=1 --quiet https://github.com/WordPress/wordpress-develop.git "$TEMP_WP_DIR"
+		else
+			# For tags, we need to handle the tag format conversion from SVN to Git
+			local GIT_TAG=""
+			if [[ $WP_TESTS_TAG =~ ^tags/(.+)$ ]]; then
+				GIT_TAG="${BASH_REMATCH[1]}"
+			elif [[ $WP_TESTS_TAG =~ ^branches/(.+)$ ]]; then
+				GIT_TAG="${BASH_REMATCH[1]}"
+			else
+				GIT_TAG="$WP_TESTS_TAG"
+			fi
+			
+			# Try to clone the specific tag, fallback to master if tag doesn't exist
+			if ! git clone --depth=1 --branch="$GIT_TAG" --quiet https://github.com/WordPress/wordpress-develop.git "$TEMP_WP_DIR" 2>/dev/null; then
+				git clone --depth=1 --quiet https://github.com/WordPress/wordpress-develop.git "$TEMP_WP_DIR"
+			fi
+		fi
+		
+		# Copy the required directories
+		cp -r "$TEMP_WP_DIR/tests/phpunit/includes" "$WP_TESTS_DIR/"
+		cp -r "$TEMP_WP_DIR/tests/phpunit/data" "$WP_TESTS_DIR/"
+		
+		# Clean up temporary directory
+		rm -rf "$TEMP_WP_DIR"
 	fi
 
 	if [ ! -f wp-tests-config.php ]; then
-		download https://develop.svn.wordpress.org/${WP_TESTS_TAG}/wp-tests-config-sample.php "$WP_TESTS_DIR"/wp-tests-config.php
+		# Download wp-tests-config-sample.php from GitHub instead of SVN
+		if [[ $WP_TESTS_TAG == "trunk" ]]; then
+			download https://raw.githubusercontent.com/WordPress/wordpress-develop/trunk/wp-tests-config-sample.php "$WP_TESTS_DIR"/wp-tests-config.php
+		else
+			local GIT_TAG=""
+			if [[ $WP_TESTS_TAG =~ ^tags/(.+)$ ]]; then
+				GIT_TAG="${BASH_REMATCH[1]}"
+			elif [[ $WP_TESTS_TAG =~ ^branches/(.+)$ ]]; then
+				GIT_TAG="${BASH_REMATCH[1]}"
+			else
+				GIT_TAG="$WP_TESTS_TAG"
+			fi
+			
+			# Try to download from the specific tag, fallback to trunk
+			if ! download "https://raw.githubusercontent.com/WordPress/wordpress-develop/$GIT_TAG/wp-tests-config-sample.php" "$WP_TESTS_DIR"/wp-tests-config.php 2>/dev/null; then
+				download https://raw.githubusercontent.com/WordPress/wordpress-develop/trunk/wp-tests-config-sample.php "$WP_TESTS_DIR"/wp-tests-config.php
+			fi
+		fi
+		
 		# remove all forward slashes in the end
 		WP_CORE_DIR=$(echo $WP_CORE_DIR | sed "s:/\+$::")
 		sed $ioption "s:dirname( __FILE__ ) . '/src/':'$WP_CORE_DIR/':" "$WP_TESTS_DIR"/wp-tests-config.php
