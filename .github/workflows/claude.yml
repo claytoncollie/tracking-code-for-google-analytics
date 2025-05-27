@@ -42,3 +42,8 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets.GH_TOKEN }}
+          allowed_tools: |
+            bash
+            composer
+            npm
+            git
