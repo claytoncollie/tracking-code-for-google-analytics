@@ -1,6 +1,6 @@
 <?php
 /**
- * Get the tracking iD.
+ * Get the tracking ID.
  *
  * @package Tracking_Code_For_Google_Analytics
  */
@@ -52,5 +52,4 @@ function get_the_id(): string {
 	 */
 	// @phpstan-ignore-next-line -- WordPress get_option returns mixed, but we expect string
 	return get_option( OPTION_NAME, '' );
-
 }
