@@ -31,7 +31,7 @@ function register_setting() : void {
 			'id'          => OPTION_NAME,
 			'name'        => OPTION_NAME,
 			'value'       => get_the_id(),
-			'description' => esc_html__( 'Enter your Google Analytics tracking ID eg. UA-1234567', 'tracking-code-for-google-analytics' ),
+			'description' => esc_html__( 'Enter your Google Analytics tracking ID eg. G-XXXXXXXXXX', 'tracking-code-for-google-analytics' ),
 			'disabled'    => defined( CONFIG_NAME ) || has_filter( FILTER_NAME ) ? 'disabled' : '',
 		)
 	);
