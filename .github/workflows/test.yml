@@ -54,6 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [phpcs,phpstan]
     strategy:
+      fail-fast: false
       matrix:
         core:
           - {name: 'WordPress Latest', version: 'latest'}
