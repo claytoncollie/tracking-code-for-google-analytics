@@ -71,12 +71,6 @@ jobs:
       run: composer install
       continue-on-error: true
 
-    - name: Shim docker-compose for wp-env
-      run: |
-        sudo rm -f /usr/local/bin/docker-compose
-        printf '#!/bin/sh\nexec docker compose "$@"\n' | sudo tee /usr/local/bin/docker-compose > /dev/null
-        sudo chmod +x /usr/local/bin/docker-compose
-
     - name: Set the core version
       run: ./tests/bin/set-core-version.js ${{ matrix.core.version }}
 
