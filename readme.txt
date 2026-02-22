@@ -1,19 +1,19 @@
 === Tracking Code for Google Analytics ===
 Contributors: claytoncollie
-Donate link: https://commerce.coinbase.com/checkout/2aa628a4-f12e-4231-a6eb-9887ddc6e9aa
-Tags: google, analytics, tracking code, tracking, universal analytics, tracking snippet
-Requires at least: 5.0
-Tested up to: 6.6.0
+Donate link: https://github.com/sponsors/claytoncollie
+Tags: google, analytics, tracking code, tracking, ga4, gtag
+Requires at least: 5.2
+Tested up to: 6.9
 Requires PHP: 7.2
 Stable tag: 2.0.3
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Simple, lightweight solution for inserting your Google Analytics Universal tracking code.
+Simple, lightweight solution for inserting your Google Analytics tracking code.
 
 == Description ==
 
-Tracking Code For Google Analytics is a simple, lightweight WordPress plugin for inserting your Google Analytics Universal Analytics tracking code. The plugin does one thing and one thing only; prints the standard Google Analytics tacking script to the `<head>` of your website. To insert your tracking ID, navigate to Settings > General and then scroll to the bottom of the page.
+Tracking Code For Google Analytics is a simple, lightweight WordPress plugin for inserting your Google Analytics tracking code. The plugin does one thing and one thing only; prints the standard Google Analytics gtag.js script to the `<head>` of your website. To insert your tracking ID, navigate to Settings > General and then scroll to the bottom of the page.
 
 ### Composer
 
@@ -33,7 +33,7 @@ If you want to set the tracking ID without using the wp-admin user interface, us
 	 * @return string
 	 */
 	function ( string $tracking_id ) : string {
-		$tracking_id = 'UA-7654321';
+		$tracking_id = 'G-XXXXXXXXXX';
 		return $tracking_id;
 	}
 );`
@@ -42,15 +42,22 @@ If you want to set the tracking ID without using the wp-admin user interface, us
 
 You can also define the tracking ID in your wp-config.php file with the following snippet.
 
-`define( 'TRACKING_CODE_FOR_GOOGLE_ANALYTICS_ID', 'UA-7654321' );`
+`define( 'TRACKING_CODE_FOR_GOOGLE_ANALYTICS_ID', 'G-XXXXXXXXXX' );`
 
 ### Contributing
 
 While the purpose of this plugin is to be very tightly scoped, [issues and pull requests are welcome on GitHub](https://github.com/claytoncollie/tracking-code-for-google-analytics). I do not guarantee that everything will be merged or support will be given.
 
+### Related Plugins
+
+* [Tracking Code for Google Tag Manager](https://wordpress.org/plugins/tracking-code-for-google-tag-manager/)
+* [Tracking Code for LinkedIn Insights Tag](https://wordpress.org/plugins/tracking-code-for-linkedin-insights-tag/)
+* [Tracking Code for Pinterest Pixel](https://wordpress.org/plugins/tracking-code-for-pinterest-pixel/)
+* [Tracking Code for Twitter Pixel](https://wordpress.org/plugins/tracking-code-for-twitter-pixel/)
+
 ### Donate
 
-If you like this plugin and would like to support my work, [please consider a small donation via Coinbase](https://commerce.coinbase.com/checkout/2aa628a4-f12e-4231-a6eb-9887ddc6e9aa).
+If you like this plugin and would like to support my work, [please consider sponsoring me on GitHub](https://github.com/sponsors/claytoncollie).
 
 == Installation ==
 

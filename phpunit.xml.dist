@@ -3,18 +3,15 @@
 	bootstrap="tests/php/bootstrap.php"
 	backupGlobals="false"
 	colors="true"
-	convertErrorsToExceptions="true"
-	convertNoticesToExceptions="true"
-	convertWarningsToExceptions="true"
 	>
   	<testsuites>
     	<testsuite name="All">
       		<directory prefix="Test" suffix=".php">./tests/php/</directory>
     	</testsuite>
   	</testsuites>
-  	<coverage>
+  	<source>
 		<include>
 			<directory suffix=".php">./inc</directory>
 		</include>
-	</coverage>
+	</source>
 </phpunit>
