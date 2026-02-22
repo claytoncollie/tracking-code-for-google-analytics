@@ -19,6 +19,9 @@
 	"directories": {
 		"test": "tests"
 	},
+	"overrides": {
+		"simple-git": "3.32.1"
+	},
 	"devDependencies": {
 		"@10up/cypress-wp-utils": "github:10up/cypress-wp-utils#build",
 		"@types/node": "^18.0.0",
