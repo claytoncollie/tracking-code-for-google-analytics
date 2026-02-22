@@ -2,7 +2,7 @@ describe("Set tracking ID with wp-config definition", () => {
 	before(() => {
 		cy.login();
 		cy.wpCli(
-			"config set TRACKING_CODE_FOR_GOOGLE_ANALYTICS_ID definition --add --raw"
+			"config set TRACKING_CODE_FOR_GOOGLE_ANALYTICS_ID definition --add"
 		);
 	});
 
