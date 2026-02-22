@@ -67,6 +67,9 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Fix simple-git clone check (steveukx/git-js#1121)
+      run: node -e "var f=require('fs'),p='node_modules/simple-git/dist/cjs/index.js';f.writeFileSync(p,f.readFileSync(p,'utf8').replace(/allowUnsafePack\s*=\s*(false|!1)/g,'allowUnsafePack=true'))"
+
     - name: Composer
       run: composer install
       continue-on-error: true
