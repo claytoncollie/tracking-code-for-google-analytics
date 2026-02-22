@@ -8,6 +8,8 @@ describe("Set tracking ID with wp-config definition", () => {
 
 	it("Is input field disabled?", () => {
 		cy.visit("/wp-admin/options-general.php");
+		// Reload so PHP opcache picks up the wp-config.php change from before()
+		cy.reload();
 		cy.get("#tracking_code_for_google_analytics").should("be.disabled");
 	});
 
