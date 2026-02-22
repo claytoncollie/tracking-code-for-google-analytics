@@ -73,7 +73,7 @@ jobs:
 
     - name: Shim docker-compose for wp-env
       run: |
-        sudo ln -sf $(which docker) /usr/local/bin/docker-compose || true
+        sudo rm -f /usr/local/bin/docker-compose
         printf '#!/bin/sh\nexec docker compose "$@"\n' | sudo tee /usr/local/bin/docker-compose > /dev/null
         sudo chmod +x /usr/local/bin/docker-compose
 
