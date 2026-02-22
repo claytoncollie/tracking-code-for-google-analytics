@@ -39,7 +39,7 @@ function get_the_id() : string {
 	 * @since 1.0.0
 	 */
 	if ( has_filter( FILTER_NAME ) ) {
-		return apply_filters( FILTER_NAME, '' );
+		return (string) apply_filters( FILTER_NAME, '' );
 	}
 
 	/**
@@ -49,6 +49,6 @@ function get_the_id() : string {
 	 *
 	 * @since 1.0.0
 	 */
-	return get_option( OPTION_NAME, '' );
+	return (string) get_option( OPTION_NAME, '' );
 
 }
