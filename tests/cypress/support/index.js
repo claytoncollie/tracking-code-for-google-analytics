@@ -20,6 +20,9 @@ Cypress.Commands.overwrite("wpCli", (originalFn, command, options = {}) => {
   return cy.exec(`npx wp-env run tests-cli -- wp ${command}`, options);
 });
 
+// Ignore uncaught exceptions from WordPress admin JS (e.g. user-profile.min.js)
+Cypress.on("uncaught:exception", () => false);
+
 beforeEach(() => {
   Cypress.Cookies.defaults({
     preserve: /^wordpress.*?/,
