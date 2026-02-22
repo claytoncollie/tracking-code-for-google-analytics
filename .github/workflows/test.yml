@@ -13,12 +13,12 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '7.2'
+        php-version: '8.2'
         coverage: none
         tools: composer:v2
 
@@ -34,12 +34,12 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '7.2'
+        php-version: '8.2'
         coverage: none
         tools: composer:v2
 
@@ -48,24 +48,28 @@ jobs:
 
     - name: Static Analysis
       run: composer run phpstan
-  
+
   cypress:
     name: ${{ matrix.core.name }}
     runs-on: ubuntu-latest
     needs: [phpcs,phpstan]
     strategy:
+      fail-fast: false
       matrix:
         core:
           - {name: 'WordPress Latest', version: 'latest'}
-          - {name: 'WordPress Minimum', version: 'WordPress/WordPress#5.0'}
+          - {name: 'WordPress Minimum', version: 'WordPress/WordPress#6.2'}
           - {name: 'WordPress Trunk', version: 'WordPress/WordPress#master'}
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Install dependencies
       run: npm install
+
+    - name: Fix simple-git clone check (steveukx/git-js#1121)
+      run: node -e "var f=require('fs'),p='node_modules/simple-git/dist/cjs/index.js';f.writeFileSync(p,f.readFileSync(p,'utf8').replace(/allowUnsafePack\s*=\s*(false|!1)/g,'allowUnsafePack=true'))"
 
     - name: Composer
       run: composer install
